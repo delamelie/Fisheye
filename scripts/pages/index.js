@@ -1,11 +1,11 @@
 // Retrieve photographers data
 
 fetch('./data/photographers.json')
-.then((response) => response.json())
-.then((data) => displayData(data.photographers))
-.catch((error) => console.log("Erreur"));
+	.then((response) => response.json())
+	.then((data) => displayData(data.photographers))
+	.catch((error) => console.log("Erreur"));
 
-// Dislay photographers data
+// Display photographers data
 
 async function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographer_section");
@@ -17,7 +17,12 @@ async function displayData(photographers) {
 	});
 };
 
-	
 
 
-	
+
+
+
+
+
+
+
