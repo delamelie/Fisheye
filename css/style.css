@@ -4,6 +4,7 @@ body {
     font-family: "DM Sans", sans-serif;
     margin: 0 0 50px 0;
     line-height: 1.5;
+    box-sizing: border-box;
 }
 
 header {
@@ -14,7 +15,7 @@ header {
     height: 90px;
 }
 
-h1 {
+.header-homepage h1 {
     color: #901C1C;
     margin-right: 100px;
 }
@@ -31,13 +32,13 @@ h1 {
     margin-top: 100px;
 }
 
-/*.photographer_section article {
+.photographer_section article {
     justify-self: center;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}*/
+}
 
 .photographer_section a {
     text-decoration: none;
@@ -63,7 +64,7 @@ h1 {
 }
 
 .photographer_section article h3 {
-    color: #D3573C;
+    color: #901C1C;
     margin: 5px 0;
     font-size: 1.2em;
 }
@@ -75,5 +76,6 @@ h1 {
 
 .photographer_section article p {
     margin: 0;
+    color: #525252;
     font-size: 1em;
 }

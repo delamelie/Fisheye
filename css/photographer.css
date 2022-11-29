@@ -2,13 +2,42 @@
     display: none;
 }
 
-.photograph-header {
+.photographer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
 }
 
-.contact_button {
+.photographer-header h1 {
+    color: #D3573C;
+    font-size: 2.5em;
+    margin-bottom: 0;
+}
+
+.photographer-header h2 {
+    color: #901C1C;
+    font-size: 1.5em;
+    margin: 0;
+}
+
+.photographer-header p {
+    color: #525252;
+}
+
+.photographer-header img {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+    box-shadow: 2px 5px 8px#F7FBF4;
+    border: 3px solid;
+}
+
+.contact_button,
+.filter #list {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -19,6 +48,13 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.contact_button:hover,
+.contact_button:focus {
+    color: #000000;
+    background-color: #D3573C;
 }
 
 .modal {
@@ -48,19 +84,19 @@
     text-align: center;
 }
 
-form {
+.modal form {
     display: flex;
     width: 100%;
     flex-direction: column;
     align-items: flex-start;
 }
 
-form label {
+.modal form label {
     color: #312E2E;
     font-size: 36px;
 }
 
-form div {
+.modal form div {
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -68,9 +104,66 @@ form div {
     margin-bottom: 26px;
 }
 
-form input {
+.modal form input {
     width: 100%;
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photographer-portfolio {
+    margin: 0 100px;
+}
+
+.photographer-portfolio .filter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.photographer-portfolio .filter label {
+    font-size: 1em;
+    font-weight: bold;
+}
+
+.photographer-portfolio .filter #list {
+    margin-left: 20px;
+}
+
+.artwork {
+    width: 350px;
+}
+
+.artwork img {
+    margin-top: 30px;
+    height: 300px;
+    border-radius: 5px;
+}
+
+.artwork .description {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.artwork p,
+.artwork i {
+    color: #901C1C;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+#main .label {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 380px;
+    height: 90px;
+    padding: 0 30px;
+    border-radius: 5px;
+    background-color: #D3573C;
+    position: fixed;
+    bottom: 0;
+    right: 40px;
 }

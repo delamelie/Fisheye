@@ -1,9 +1,16 @@
 // Retrieve photographers data
 
-fetch('./data/photographers.json')
-	.then((response) => response.json())
-	.then((data) => displayData(data.photographers))
-	.catch((error) => console.log("Erreur"));
+function fetchData() {
+	fetch('./data/photographers.json')
+		.then((response) => response.json())
+		.then((data) => {
+			console.log(data.photographers);
+			displayData(data.photographers);
+		})
+		.catch((error) => console.log("Erreur"));
+}
+fetchData()
+
 
 // Display photographers data
 
