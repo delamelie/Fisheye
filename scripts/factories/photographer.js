@@ -19,9 +19,9 @@ function photographerFactory(data) {
         article.appendChild(h3)
         article.appendChild(h4)
         article.appendChild(p)
-        link.setAttribute('href', `photographer.html?id=${id}&name=${name}&portrait=${portrait}&country=${country}&city=${city}&tagline=${tagline}`)
+        link.setAttribute('href', `photographer.html?id=${id}`)
         img.setAttribute('src', picture)
-        img.setAttribute('alt', `Profil du photographe ${name}. Cliquez sur la photo pour accéder à la page du photographe`)
+        img.setAttribute('alt', `Photo de profil du photographe ${name}.Cliquez sur la photo pour accéder à la page du photographe`)
         h2.textContent = name
         h3.textContent = `${city}, ${country}`
         h4.textContent = tagline

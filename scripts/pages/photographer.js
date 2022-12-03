@@ -1,42 +1,37 @@
 // Retrieve URL params
 
-const urlRetrieve = window.location.search
-console.log(urlRetrieve)
-const searchParams = new URLSearchParams(urlRetrieve)
-console.log(searchParams)
-/*const params = searchParams.getAll(urlRetrieve)
-console.log(params)*/
-const name = searchParams.get('name');
-const city = searchParams.get('city');
-const country = searchParams.get('country');
-const tagline = searchParams.get('tagline');
-const price = searchParams.get('price');
-const picture = searchParams.get('portrait');
-console.log(price)
-console.log(picture)
+const id = new URL(document.location).searchParams.get('id')
 
+function fetchData() {
+    fetch('./data/photographers.json')
+        .then((response) => response.json())
+        .then((data) => {
+            const currentMediaPhotographer = data.media.filter(media => media.photographerId == id)
+            console.log(currentMediaPhotographer)
+            const currentPhotographer = data.photographers.find(photographer => photographer.id == id);
+            displayPhotographerData(data.photographers)
+            console.log(currentPhotographer)
+        })
+        .catch((error) => console.log("Erreur"));
+}
+fetchData()
 
-
-/*function photographerPageFactory(data) {
-
-    const { name, portrait, country, city, tagline, price } = data
-    const picture = `assets / photographers / Photographers_ID / ${portrait} `
-
-    function getPhotographerPageDOM() {
-        const photographerHeader = document.querySelector(".photographer-header");
-        const photographerDetailsTemplate = `
-    <div class="photographer-details">
-        <h1>${name}</h1>
-        <h2>${city}, ${country}</h2>
-        <p>${tagline}</p>
-    </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img src="${picture}">
-    `
-        return (div)
+/*class Photographer {
+    constructor(data) {
+        this.id = data.id
+        this.city = city
+        this.country = data.country
+        this.name = data.name
+        this.picture = data.portrait
+        this.price = data.price
+        this.tagline = data.tagline
     }
-    return { name, picture, country, city, tagline, price, getPhotographerPageDOM }
+
+    get picture() {
+        return `../assets/photographers/${this.picture}`
+    }
 }*/
+
 
 
 
@@ -45,77 +40,65 @@ console.log(picture)
 const photographerHeader = document.querySelector(".photographer-header");
 const photographerDetailsTemplate = `
     <div class="photographer-details">
-        <h1>${name}</h1>
-        <h2>${city}, ${country}</h2>
-        <p>${tagline}</p>
+        <h1>name</h1>
+        <h2>${this.city}</h2>
+        <p>${this.tagline}</p>
     </div>
-        <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
-        <img src="assets/photographers/Photographers_ID / ${picture}">
+        <button class="contact_button" onclick="displayModal()" aria-label="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+        <img src="${this.picture}" alt= "Photo de profil de bonjour">
     `
 photographerHeader.innerHTML = photographerDetailsTemplate;
 
-
-// Create html layout for photographer-portfolio section
-
-function fetchDataArtworks() {
-    fetch('./data/photographers.json')
-        .then((response) => response.json())
-        .then((data) => {
-            console.log(data.media);
-            displayData(data.media);
-        })
-        .catch((error) => console.log("Erreur"));
-}
-fetchDataArtworks()
+const modaleHeader = document.querySelector(".form-header");
+const div = document.createElement('div')
+div.textContent = name
+modaleHeader.appendChild(div)
+modaleHeader.style.fontSize = "54px"
 
 const pictureGallery = document.querySelector(".picture-gallery");
 const portfolioTemplate = `
-    <div class="artwork">
-        <img src="${picture}">
-        <div class="description">    
-            <p>${this._ti}</p>
-            <i class="fa-solid fa-heart"></i>
+<div class="artwork">
+    <img src="bonjour">
+        <div class="description">
+            <p>${this.title}</p>
+            <span class="likes">bonjour/*<i class="fa-solid fa-heart"></i></span>
         </div>
     </div>
-    `
+`
 pictureGallery.innerHTML = portfolioTemplate;
-
 
 // Create html layout for label
 
 const label = document.querySelector(".label");
 const likesAndFees = `
-    <div class="likes">${price}€/jour</div >
-    <div class="price">${price}</div>
+    < span class="total-likes" >${this.price}<i class="fa-solid fa-heart"></i></span >
+        <span class="price">${this.price}€/jour</span>
 `
 label.innerHTML = likesAndFees;
 
 
 
-// Create html layout for photographer's page
+function photographerPageFactory(data) {
 
-/*function photographerPageFactory(data) {
+    const { name, id, portrait, country, city, tagline, price } = data
+    const picture = `assets/photographers/Photographers_ID/${portrait}`
 
-    const { name, id, portrait, country, city, tagline } = data
-    const picture = `assets / photographers / Photographers_ID / ${ portrait } `
-
-    function getPhotographerPageDOM() {
+    function getPhotographerDOM() {
         const div = document.createElement('div')
-        div.setAttribute('class', 'photographer-details')
+        const h1 = document.createElement('h1')
+        div.appendChild(h1)
+        h1.textContent = tagline
         return (div)
     }
-    return { name, id, picture, country, city, tagline, getPhotographerPageDOM }
+    return { name, id, picture, country, city, tagline, price, getPhotographerDOM }
 }
-
+photographerPageFactory(data)
 
 // Display photographers data
 
-async function displayPhotographersData(photographers) {
-    const photographerHeader = document.querySelector(".photographer-header");
-
-    photographers.forEach((photographer) => {
-        const photographerDetailsTemplate = photographerPageFactory(photographer);
-        const photographerPageDOM = photographerDetailsTemplate.getPhotographerPageDOM();
-        photographerHeader.appendChild(photographerPageDOM);
-    });
-};*/
+async function displayPhotographerData() {
+    const photographerHeader = document.querySelector(".photographer-header")
+    const photographerPageModel = photographerPageFactory(data);
+    const photographerPageDOM = photographerPageModel.getPhotographerDOM();
+    photographerHeader.appendChild(photographerPageDOM);
+};

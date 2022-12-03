@@ -1,5 +1,19 @@
-#contact_modal {
-    display: none;
+@keyframes modal {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.header-page-photographer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
 }
 
 .photographer-header {
@@ -33,10 +47,10 @@
     width: 150px;
     object-fit: cover;
     box-shadow: 2px 5px 8px#F7FBF4;
-    border: 3px solid;
 }
 
 .contact_button,
+.send_button,
 .filter #list {
     font-size: 20px;
     font-weight: bold;
@@ -54,7 +68,18 @@
 .contact_button:hover,
 .contact_button:focus {
     color: #000000;
-    background-color: #D3573C;
+    background-color: #DB8876;
+}
+
+#contact_modal {
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    position: absolute;
+    background-color: rgba(218, 201, 201, 0.4);
+    overflow: auto;
+    animation: modal 0.3s;
 }
 
 .modal {
@@ -66,22 +91,31 @@
     align-items: center;
     justify-content: space-between;
     padding: 35px;
-    margin: auto;
+    position: relative;
+    margin: 0 auto;
+    top: 15%;
 }
 
-.modal header {
-    justify-content: space-between;
+.form-header {
     width: 100%;
+    margin-bottom: 30px;
+}
+
+.form-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .modal header img {
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
+.modal header h1 {
+    font-size: 54px;
     font-weight: normal;
     text-align: center;
+    margin: 0;
 }
 
 .modal form {
@@ -109,6 +143,22 @@
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.send_button {
+    margin-top: 30px;
+}
+
+.erreur {
+    font-size: 1.2em;
+    color: #901C1C;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    transition: 0.3s;
+}
+
+.border-invalid {
+    border: 10px solid #901C1C;
 }
 
 .photographer-portfolio {
@@ -159,10 +209,10 @@
     justify-content: space-between;
     align-items: center;
     width: 380px;
-    height: 90px;
+    height: 70px;
     padding: 0 30px;
     border-radius: 5px;
-    background-color: #D3573C;
+    background-color: #DB8876;
     position: fixed;
     bottom: 0;
     right: 40px;

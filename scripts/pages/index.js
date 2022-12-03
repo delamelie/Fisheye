@@ -3,10 +3,7 @@
 function fetchData() {
 	fetch('./data/photographers.json')
 		.then((response) => response.json())
-		.then((data) => {
-			console.log(data.photographers);
-			displayData(data.photographers);
-		})
+		.then((data) => displayData(data.photographers))
 		.catch((error) => console.log("Erreur"));
 }
 fetchData()
