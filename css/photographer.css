@@ -74,18 +74,20 @@
 #contact_modal {
     display: none;
     width: 100%;
-    height: 100%;
+    /*height: 100%;*/
     top: 0;
     position: absolute;
     background-color: rgba(218, 201, 201, 0.4);
-    overflow: auto;
+    /*overflow: auto;*/
     animation: modal 0.3s;
+    border: #000000 3px solid;
 }
 
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
     width: 50%;
+    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +147,10 @@
     border-radius: 5px;
 }
 
+.form-contact .message {
+    height: 200px;
+}
+
 .send_button {
     margin-top: 30px;
 }
@@ -169,6 +175,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    margin-bottom: 40px;
 }
 
 .photographer-portfolio .filter label {
@@ -180,24 +187,28 @@
     margin-left: 20px;
 }
 
-.artwork {
-    width: 350px;
+.picture-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 30%);
+    row-gap: 30px;
+    justify-content: space-between;
 }
 
-.artwork img {
-    margin-top: 30px;
+.picture img {
+    width: 100%;
+    object-fit: cover;
     height: 300px;
     border-radius: 5px;
 }
 
-.artwork .description {
+.picture .description {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-.artwork p,
-.artwork i {
+.picture p,
+.picture span {
     color: #901C1C;
     font-size: 1.1em;
     margin: 0;

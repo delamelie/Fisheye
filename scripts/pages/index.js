@@ -2,9 +2,9 @@
 
 function fetchData() {
 	fetch('./data/photographers.json')
-		.then((response) => response.json())
-		.then((data) => displayData(data.photographers))
-		.catch((error) => console.log("Erreur"));
+		.then(response => response.json())
+		.then(data => displayData(data.photographers))
+		.catch(error => console.log("An error occurred", error));
 }
 fetchData()
 
