@@ -19,7 +19,84 @@ function fetchData() {
 fetchData()
 
 
-// Factory function
+// Create html layout for photographer-details section
+
+function photographerPageFactory(data) {
+
+    const { name, id, portrait, country, city, tagline, price } = data
+    const picture = `assets/photographers/Photographers_ID/${portrait}`
+
+    function getPhotographerDOM() {
+        const photographerDetailsTemplate = `
+        <div class="photographer-details">
+            <h1>${name}</h1>
+            <h2>${city}, ${country}</h2>
+            <p>${tagline}</p>
+        </div>
+            <button class="contact_button" onclick="displayModal()" role="button" aria-labelledby="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+            <img src="${picture}" alt= "Photo de profil de ${name}">
+        `
+        return (photographerDetailsTemplate)
+    }
+    return { name, id, picture, country, city, tagline, price, getPhotographerDOM }
+}
+
+
+// Create html layout for form-header
+
+function modalFactory(data) {
+
+    const { name, id } = data
+
+    function getFormDOM() {
+        const div = document.createElement('div')
+        div.textContent = name
+        div.style.fontSize = "40px"
+        return (div)
+    }
+    return { name, id, getFormDOM }
+}
+
+
+// Create html layout for label
+
+function labelFactory(data) {
+
+    const { name, id, likes, price } = data
+
+    function getLabelDOM() {
+        const likesAndFees = `
+        <span class="total-likes" aria-label="nombre de likes">nombre de likes <i class="fa-solid fa-heart" aria-hidden="true" title="Nombre de likes"></i></span >
+        <span class="price">${price}€/jour</span>
+        `
+        return (likesAndFees)
+    }
+    return { name, id, likes, price, getLabelDOM }
+}
+
+
+// Display photographers data
+
+/*async*/ function displayPhotographerData(profile) {
+    const photographerHeader = document.querySelector(".header-main-photographer")
+    const photographerPageModel = photographerPageFactory(profile);
+    const photographerPageDOM = photographerPageModel.getPhotographerDOM();
+    photographerHeader.innerHTML = photographerPageDOM;
+
+    const label = document.querySelector(".label")
+    const labelModel = labelFactory(profile);
+    const labelDOM = labelModel.getLabelDOM();
+    label.innerHTML = labelDOM;
+
+    const modalHeader = document.querySelector(".form-header")
+    const modalModel = modalFactory(profile);
+    const modalDOM = modalModel.getFormDOM();
+    modalHeader.appendChild(modalDOM);
+
+};
+
+
+// Factory function to display gallery
 
 function mediaFactory(data) {
 
@@ -43,7 +120,7 @@ function mediaFactory(data) {
         span.setAttribute('class', "likes")
         img.setAttribute('src', picture)
         img.setAttribute('alt', `Titre de la photo : ${title}. Cliquez sur la photo pour l'agrandir`)
-        i.setAttribute('class', "fa-solid fa-heart")
+        i.setAttribute('class', "fa-solid fa-heart", 'aria-hidden', true, 'title', "Nombre de likes")
         p.textContent = title
         span.textContent = likes
         return (divPicture)
@@ -60,28 +137,35 @@ async function displayMedia(media) {
     media.forEach((image) => {
         const mediaPageModel = mediaFactory(image);
         const mediaPageDOM = mediaPageModel.getMediaDOM();
-        pictureGallery.appendChild(mediaPageDOM);
+        /*pictureGallery.innerHTML = mediaPageDOM;*/
+        pictureGallery.appendChild(mediaPageDOM)
     });
 };
 
 
-/*const pictureGallery = document.querySelector(".picture-gallery");
-const portfolioTemplate = `
-<div class="picture">
-    <img src="bonjour">
-    <div class="description">
-            <p>${this.title}</p>
-            <span class="likes">bonjour/*<i class="fa-solid fa-heart"></i></span>
-        </div>
-    </div>
-`
-pictureGallery.innerHTML = portfolioTemplate;*/
+//Not in use
 
+/*function mediaFactory(data) {
 
+    const { photographerId, date, image, likes, title, price } = data
+    const picture = `assets/photographers/${photographerId}/${image}`
 
-// Create html layout for photographer-details section
+    function getMediaDOM() {
+        const portfolioTemplate = `
+        <div class="picture">
+            <img src=${picture}>
+            <div class="description">
+                    <p>${title}</p>
+                    <span class="likes">${likes}<i class="fa-solid fa-heart"></i></span>
+                </div>
+            </div>
+        `
+        return (portfolioTemplate)
+    }
+    return { photographerId, date, picture, likes, title, price, getMediaDOM }
+}*/
 
-function photographerPageFactory(data) {
+/*function photographerPageFactory(data) {
 
     const { name, id, portrait, country, city, tagline, price } = data
     const picture = `assets/photographers/Photographers_ID/${portrait}`
@@ -111,53 +195,7 @@ function photographerPageFactory(data) {
         return (div)
     }
     return { name, id, picture, country, city, tagline, price, getPhotographerDOM }
-}
-
-/*
-const photographerHeader = document.querySelector(".photographer-header");
-const photographerDetailsTemplate = `
-    <div class="photographer-details">
-        <h1>name</h1>
-        <h2>${this._city}, ${this._country}</h2>
-        <p>${this._tagline}</p>
-    </div>
-        <button class="contact_button" onclick="displayModal()" aria-label="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
-        <img src="${this.picture}" alt= "Photo de profil de bonjour">
-    `
-photographerHeader.innerHTML = photographerDetailsTemplate;*/
-
-
-// Display photographers data
-
-/*async*/ function displayPhotographerData(profile) {
-    const photographerHeader = document.querySelector(".photographer-header")
-
-    /*photographers.forEach((profile) => {*/
-    const photographerPageModel = photographerPageFactory(profile);
-    const photographerPageDOM = photographerPageModel.getPhotographerDOM();
-    photographerHeader.appendChild(photographerPageDOM);
-    /*});*/
-};
-
-
-
-// Create html layout for form-header
-
-const modaleHeader = document.querySelector(".form-header");
-const div = document.createElement('div')
-div.textContent = name
-modaleHeader.appendChild(div)
-modaleHeader.style.fontSize = "54px"
-
-
-// Create html layout for label
-
-const label = document.querySelector(".label");
-const likesAndFees = `
-< span class="total-likes" >${this.price}<i class="fa-solid fa-heart"></i></span >
-    <span class="price">${this.price}€/jour</span>
-`
-label.innerHTML = likesAndFees;
+}*/
 
 
 

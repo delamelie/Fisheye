@@ -15,6 +15,8 @@ function displayModal() {
   header.setAttribute('aria-hidden', 'true')
   main.setAttribute('aria-hidden', 'true')
   modal.setAttribute('aria-hidden', 'false')
+  header.classList.add("opacity")
+  main.classList.add("opacity")
   closeBtn.focus()
 }
 
@@ -23,6 +25,8 @@ function closeModal() {
   header.setAttribute('aria-hidden', 'false')
   main.setAttribute('aria-hidden', 'false')
   modal.setAttribute('aria-hidden', 'true')
+  header.classList.remove("opacity")
+  main.classList.remove("opacity")
   contactBtn.focus()
 }
 

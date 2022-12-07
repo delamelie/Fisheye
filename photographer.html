@@ -9,24 +9,25 @@
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/f68a297db4.js" crossorigin="anonymous"></script>
-  <title>Fisheye - Photographe </title>
+  <title>Fisheye - Page photographe </title>
 </head>
 
 <body>
-  <header class="header-page-photographer" aria-label="navigation générale">
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Logo Fisheye" /></a>
+  <header class="header-page-photographer" aria-label="Navigation générale">
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" role="img"
+        alt="Logo Fisheye - Lien vers la page d'accueil" /></a>
   </header>
 
-  <main id="main" aria-hidden="false">
-    <section class="photographer-header" aria-label="Informations sur le photographe"></section>
+  <main id="main" aria-label="Section principale">
+    <section class="header-main-photographer" aria-label="Informations sur le photographe"></section>
 
     <section class="photographer-portfolio" aria-label="Portfolio du photographe">
       <form method="post" class="filter" role="sort">
         <label for="sort-by">Trier par</label>
         <select name="list" id="list" aria-haspopup="listbox" aria-expanded="false">
-          <option value="popularite" class="popularite">Popularité</option>
-          <option value="date" class="date">Date</option>
-          <option value="titre">Titre</option>
+          <option value="popularite" class="popularite" aria-label="Tri par popularité">Popularité</option>
+          <option value="date" class="date" aria-label="Tri par date">Date</option>
+          <option value="titre" aria-label="Tri par titre">Titre</option>
         </select>
       </form>
       <div class="picture-gallery"></div>
@@ -34,13 +35,14 @@
     <aside class="label"></aside>
   </main>
 
-  <div id="contact_modal" role="dialog" aria-describedby="Formulaire de contact du photographe" aria-hidden='true'>
+  <div id="contact_modal" role="dialog" aria-describedby="Formulaire de contact du photographe">
     <div class="modal">
       <header class="form-header" aria-label="En-tête du formulaire de contact">
         <div class="form-title">
-          <h1 aria-label="Ouvrir la fenêtre de contact">Contactez-moi</h2>
-            <button class="close_button" type="button" aria-describedby="Fermeture de la fenêtre"
-              onclick="closeModal()"><img src="assets/icons/close.svg" /></button>
+          <h1 aria-label="Ouvrir la fenêtre de contact">Contactez-moi</h1>
+          <button class="close_button" type="button" aria-labelledby="Fermeture de la fenêtre" role="button"
+            onclick="closeModal()"><img src="assets/icons/close.svg" alt="Fermeture de la fenêtre"
+              role="img" /></button>
         </div>
       </header>
 
@@ -57,7 +59,7 @@
         <label for="message" id="message">Votre message</label>
         <input type="text" name="message" id="message" class="message" aria-labelledby="message" aria-required=true />
         <span class="erreur erreur-message"></span>
-        <button class="send_button" type="submit" aria-label="Envoyer ma demande">Envoyer</button>
+        <button class="send_button" type="submit" aria-labelledby="Envoyer ma demande" role="button">Envoyer</button>
       </form>
     </div>
   </div>

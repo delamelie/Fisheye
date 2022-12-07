@@ -16,37 +16,39 @@
     height: 90px;
 }
 
-.photographer-header {
+.header-main-photographer {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    padding: 0 50px;
 }
 
-.photographer-header h1 {
+.header-main-photographer h1 {
     color: #D3573C;
-    font-size: 2.5em;
+    font-size: 3.5em;
     margin-bottom: 0;
 }
 
-.photographer-header h2 {
+.header-main-photographer h2 {
     color: #901C1C;
-    font-size: 1.5em;
+    font-size: 2em;
     margin: 0;
 }
 
-.photographer-header p {
+.header-main-photographer p {
     color: #525252;
+    font-size: 1.1em;
 }
 
-.photographer-header img {
+.header-main-photographer img {
     border-radius: 50%;
-    height: 150px;
-    width: 150px;
+    height: 180px;
+    width: 180px;
     object-fit: cover;
-    box-shadow: 2px 5px 8px#F7FBF4;
+    box-shadow: 2px 5px 15px#e0e4dc;
 }
 
 .contact_button,
@@ -71,16 +73,20 @@
     background-color: #DB8876;
 }
 
+.opacity {
+    opacity: 0.3;
+    /*opacité du background quand la modale est ouverte*/
+}
+
 #contact_modal {
     display: none;
     width: 100%;
-    /*height: 100%;*/
+    height: 100%;
     top: 0;
     position: absolute;
-    background-color: rgba(218, 201, 201, 0.4);
-    /*overflow: auto;*/
+    overflow: auto;
+    overscroll-behavior: contain;
     animation: modal 0.3s;
-    border: #000000 3px solid;
 }
 
 .modal {
@@ -114,7 +120,7 @@
 }
 
 .modal header h1 {
-    font-size: 54px;
+    font-size: 50px;
     font-weight: normal;
     text-align: center;
     margin: 0;
@@ -129,7 +135,7 @@
 
 .modal form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 26px;
 }
 
 .modal form div {
@@ -142,21 +148,28 @@
 
 .modal form input {
     width: 100%;
-    height: 68px;
+    height: 58px;
     border: none;
     border-radius: 5px;
+    border: none;
 }
 
 .form-contact .message {
-    height: 200px;
+    height: 180px;
 }
 
 .send_button {
     margin-top: 30px;
+    transform: scale(1);
+    transition: transform 400ms;
+}
+
+.send_button:hover {
+    transform: scale(1.1);
 }
 
 .erreur {
-    font-size: 1.2em;
+    font-size: 1.1em;
     color: #901C1C;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -175,7 +188,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-bottom: 40px;
+    margin: 40px 0;
 }
 
 .photographer-portfolio .filter label {
@@ -227,4 +240,5 @@
     position: fixed;
     bottom: 0;
     right: 40px;
+    font-size: 1.3em;
 }

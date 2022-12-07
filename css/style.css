@@ -55,6 +55,7 @@ body {
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
+    box-shadow: 2px 5px 20px#e0e4dc;
 }
 
 .photographer_section article h2 {
