@@ -32,4 +32,63 @@ function photographerFactory(data) {
 }
 
 
+// Create html layout for photographer-details section
+
+function photographerPageFactory(data) {
+
+    const { name, portrait, country, city, tagline } = data
+    const picture = `assets/photographers/Photographers_ID/${portrait}`
+
+    function getPhotographerDOM() {
+        const photographerDetailsTemplate = `
+        <div class="photographer-details">
+            <h1>${name}</h1>
+            <h2>${city}, ${country}</h2>
+            <p>${tagline}</p>
+        </div>
+            <button class="contact_button" onclick="displayModal()" role="button" aria-labelledby="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+            <img src="${picture}" alt= "Photo de profil de ${name}">
+        `
+        return (photographerDetailsTemplate)
+    }
+    return { name, picture, country, city, tagline, getPhotographerDOM }
+}
+
+
+// Create html layout for form-header
+
+function modalFactory(data) {
+
+    const { name } = data
+
+    function getModalDOM() {
+        const div = document.createElement('div')
+        div.textContent = name
+        div.style.fontSize = "40px"
+        return (div)
+    }
+    return { name, getModalDOM }
+}
+
+
+// Create html layout for label
+
+function labelFactory(data) {
+
+    const { price } = data
+
+    function getLabelDOM() {
+        const likesAndFees = `
+        <span class="total-likes" aria-label="nombre de likes">Total des likes <i class="fa-solid fa-heart" aria-hidden="true" title="Nombre de likes"></i></span >
+        <span class="price">${price}€/jour</span>
+        `
+        return (likesAndFees)
+    }
+    return { price, getLabelDOM }
+}
+
+
+
+
+
 

@@ -45,15 +45,15 @@
 
 .header-main-photographer img {
     border-radius: 50%;
-    height: 180px;
-    width: 180px;
+    height: 200px;
+    width: 200px;
     object-fit: cover;
     box-shadow: 2px 5px 15px#e0e4dc;
 }
 
 .contact_button,
 .send_button,
-.filter #list {
+.sort_button {
     font-size: 20px;
     font-weight: bold;
     color: white;
@@ -68,7 +68,9 @@
 }
 
 .contact_button:hover,
-.contact_button:focus {
+.contact_button:focus,
+.sort_button:hover,
+.sort_button:focus {
     color: #000000;
     background-color: #DB8876;
 }
@@ -115,8 +117,15 @@
     justify-content: space-between;
 }
 
-.modal header img {
+.close_button {
+    background-color: #DB8876;
+    border: transparent
+}
+
+.close_button .fa-xmark {
     cursor: pointer;
+    font-size: 46px;
+    color: #ffffff;
 }
 
 .modal header h1 {
@@ -184,20 +193,66 @@
     margin: 0 100px;
 }
 
-.photographer-portfolio .filter {
+.filters {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin: 40px 0;
+    align-items: baseline;
+    margin: 40px 0 100px 0;
 }
 
-.photographer-portfolio .filter label {
-    font-size: 1em;
+.filters-label {
+    font-size: 1.2em;
+}
+
+.filters-list {
+    margin-left: 40px;
+    display: flex;
+    position: relative;
+}
+
+.dropdown {
+    flex-direction: column;
+    list-style-type: none;
+    display: none;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
     font-weight: bold;
+    color: white;
+    width: 170px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+    position: absolute;
 }
 
-.photographer-portfolio .filter #list {
-    margin-left: 20px;
+.dropdown-item {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    padding: 0 18px;
+    position: relative;
+}
+
+.dropdown-item:nth-child(1)::after,
+.dropdown-item:nth-child(2)::after {
+    content: "";
+    height: 2px;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 0;
+    background-color: white;
+}
+
+.fa-chevron-up {
+    padding: 10px;
+    background-color: #901C1C;
+    border: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 .picture-gallery {
@@ -207,21 +262,24 @@
     justify-content: space-between;
 }
 
-.picture img {
+.picture img,
+video {
     width: 100%;
     object-fit: cover;
     height: 300px;
     border-radius: 5px;
 }
 
-.picture .description {
+.description {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .picture p,
-.picture span {
+.picture span,
+.video p,
+.video span {
     color: #901C1C;
     font-size: 1.1em;
     margin: 0;
