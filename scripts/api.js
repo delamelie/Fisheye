@@ -18,10 +18,6 @@ function fetchData() {
         .then(response => response.json())
         .then(data => {
             const galleryPhotographer = data.media.filter(media => media.photographerId == id)
-            console.log(galleryPhotographer)
-            /*galleryPhotographer.sort((a, b) => (a.likes < b.likes ? 1 : -1))*/
-            /*galleryPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1))*/
-            /*galleryPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1))*/
             displayMedia(galleryPhotographer)
             const currentPhotographer = data.photographers.find(photographer => photographer.id == id);
             displayPhotographerData(currentPhotographer)

@@ -12,12 +12,7 @@ function mediaFactory(data) {
         const p = document.createElement('p')
         const span = document.createElement('span')
         const i = document.createElement('i')
-        divMedia.appendChild(img)
-        divMedia.appendChild(divDescription)
-        divDescription.appendChild(p)
-        divDescription.appendChild(span)
-        span.appendChild(i)
-        divMedia.setAttribute('class', "picture")
+        divMedia.setAttribute('class', "picture media")
         divDescription.setAttribute('class', "description")
         span.setAttribute('class', "likes")
         img.setAttribute('src', picture)
@@ -25,6 +20,11 @@ function mediaFactory(data) {
         i.setAttribute('class', "fa-solid fa-heart", 'aria-hidden', true, 'title', "Nombre de likes")
         p.textContent = title
         span.textContent = likes
+        divMedia.appendChild(img)
+        divMedia.appendChild(divDescription)
+        divDescription.appendChild(p)
+        divDescription.appendChild(span)
+        span.appendChild(i)
         return (divMedia)
     }
     return { photographerId, date, picture, likes, title, price, getMediaDOM }
@@ -45,12 +45,7 @@ function videoFactory(data) {
         const p = document.createElement('p')
         const span = document.createElement('span')
         const i = document.createElement('i')
-        divMedia.appendChild(video)
-        divMedia.appendChild(divDescription)
-        divDescription.appendChild(p)
-        divDescription.appendChild(span)
-        span.appendChild(i)
-        divMedia.setAttribute('class', "video")
+        divMedia.setAttribute('class', "video media")
         divDescription.setAttribute('class', "description")
         span.setAttribute('class', "likes")
         video.setAttribute('src', clip)
@@ -58,15 +53,20 @@ function videoFactory(data) {
         video.setAttribute('alt', `Titre de la video : ${title}. Cliquez sur la video pour la jouer`)
         i.setAttribute('class', "fa-solid fa-heart", 'aria-hidden', true, 'title', "Nombre de likes")
         p.textContent = title
-        span.textContent = likes
+        span.textContent = likes;
+        divMedia.appendChild(video)
+        divMedia.appendChild(divDescription)
+        divDescription.appendChild(p)
+        divDescription.appendChild(span)
+        span.appendChild(i)
         return (divMedia)
     }
     return { photographerId, date, clip, likes, title, price, getVideoDOM }
 }
 
 
-
-/*function mediaFactory(data) {
+/*
+function mediaFactory(data) {
 
     const { photographerId, date, image, likes, title, price } = data
     const picture = `assets/photographers/${photographerId}/${image}`

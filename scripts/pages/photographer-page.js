@@ -18,11 +18,18 @@ function displayPhotographerData(profile) {
 };
 
 
-// Display gallery
+// Display gallery - à revoir
+
+let galleryPhotographer
 
 function displayMedia(medias) {
-    const pictureGallery = document.querySelector(".picture-gallery");
+    galleryPhotographer = medias
+    fillPage(medias)
+};
 
+
+function fillPage(medias) {
+    const pictureGallery = document.querySelector(".picture-gallery");
     medias.forEach((media) => {
         let image = media.hasOwnProperty('image')
         let video = media.hasOwnProperty('video')
@@ -38,6 +45,7 @@ function displayMedia(medias) {
         }
     });
 };
+
 
 
 

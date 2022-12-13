@@ -1,19 +1,24 @@
-const popularity = document.querySelector(".popularite")
-const titre = document.querySelector(".titre")
-const date = document.querySelector(".date")
+//Filters
 
-popularity.addEventListener("click", sortByLikes(photographer.media))
-titre.addEventListener("click", sortByTitle())
-date.addEventListener("click", sortByDate())
+const pictureGallery = document.querySelector(".picture-gallery");
 
-
-
-function sortByLikes(media) {
+function sortByLikes(medias) {
+    pictureGallery.textContent = ""
     galleryPhotographer.sort((a, b) => (a.likes < b.likes ? 1 : -1))
+    displayMedia(medias)
 }
 
-galleryPhotographer.sort((a, b) => (a.likes < b.likes ? 1 : -1))
-galleryPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1))
-galleryPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1))
 
+function sortByDate(medias) {
+    pictureGallery.textContent = ""
+    galleryPhotographer.sort((a, b) => (a.date > b.date ? 1 : -1))
+    displayMedia(medias)
+}
+
+
+function sortByTitle(medias) {
+    pictureGallery.textContent = ""
+    galleryPhotographer.sort((a, b) => (a.title > b.title ? 1 : -1))
+    displayMedia(medias)
+}
 

@@ -24,14 +24,14 @@ function fieldValidate(condition, champ, erreur, alerte) {
     if (condition) {
         erreur.style.display = "none";
         erreur.textContent = "";
-        champ.classList.remove("border-invalid");
+        champ.classList.remove("border-invalid", "input-border");
         champ.setAttribute("aria-invalid", "false")
         //return true;
     } else {
         formValid = false;
         erreur.style.display = "block";
         erreur.textContent = alerte;
-        champ.classList.add("border-invalid");
+        champ.classList.add("border-invalid", "input-border");
         champ.setAttribute("aria-invalid", "true")
     }
 }
@@ -72,7 +72,7 @@ function registrationConfirm() {
 
 function validate(event) {
     event.preventDefault();
-    fieldValidate(regexNom.test(prenom.value) === true, prenom, erreurPrenom, alertePrenom);
+    fieldValidate(prenom.value.length >= 2 && regexNom.test(prenom.value) === true, prenom, erreurPrenom, alertePrenom);
     fieldValidate(nom.value.length >= 2 && regexNom.test(nom.value) === true, nom, erreurNom, alerteNom);
     fieldValidate(email.value != "" && regexEmail.test(email.value) === true, email, erreurEmail, alerteEmail);
     fieldValidate(message.value != "", message, erreurMessage, alerteMessage);

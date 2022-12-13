@@ -42,15 +42,19 @@
         <div class="filters-list" onchange="getSelectedValue()">
           <button class="sort_button" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
             aria-labelledby="Ouvrir le menu de tri" onclick="toggleFilters()">
-            <span class="popularite">Popularité</span>
+            <span class="dropdown-label">Popularité</span>
             <i class="fa-solid fa-chevron-down"></i>
           </button>
           <ul class="dropdown" role="listbox" aria-expanded="true">
-            <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option">Popularité<button
-                class="fa-solid fa-chevron-up" type="button" data-toggle="dropup" aria-haspopup="true"
+            <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option"
+              onclick="sortByLikes(galleryPhotographer)">
+              Popularité<button class="fa-solid fa-chevron-up" type="button" data-toggle="dropup" aria-haspopup="true"
                 aria-expanded="true" aria-labelledby="Fermer le menu de tri" onclick="toggleFilters()"></button></li>
-            <li class="date dropdown-item" aria-label="Tri par date" role="option">Date</li>
-            <li class="titre dropdown-item" aria-label="Tri par titre" role="option">Titre</li>
+            <li class="date dropdown-item" aria-label="Tri par date" role="option"
+              onclick="sortByDate(galleryPhotographer)">Date
+            </li>
+            <li class="titre dropdown-item" aria-label="Tri par titre" role="option"
+              onclick="sortByTitle(galleryPhotographer)">Titre</li>
           </ul>
         </div>
       </div>
@@ -92,7 +96,7 @@
   <script src="scripts/api.js"></script>
   <script src="scripts/factories/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
-  <script src="scripts/pages/photographer.js"></script>
+  <script src="scripts/pages/photographer-page.js"></script>
   <script src="scripts/utils/modal.js"></script>
   <script src="scripts/utils/form-validator.js"></script>
   <script src="scripts/utils/dropdown.js"></script>
