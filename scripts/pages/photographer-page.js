@@ -22,10 +22,54 @@ function displayPhotographerData(profile) {
 
 let galleryPhotographer
 
+/*function displayMedia(medias) {
+    galleryPhotographer = medias
+    fillPage(medias)
+}*/
+
+
 function displayMedia(medias) {
     galleryPhotographer = medias
     fillPage(medias)
-};
+
+    const heart = document.querySelector(".fa-heart")
+    const likeHeart = document.querySelector(".like-heart")
+    const dislikeHeart = document.querySelector(".dislike-heart")
+    const likesNumber = document.querySelector(".likes-number")
+    heart.addEventListener('click', incrementLikes(medias));
+
+
+    function incrementLikes() {
+        medias.forEach((media) => {
+            let numberOfLikes = media.likes
+            console.log(numberOfLikes)
+            numberOfLikes++
+            console.log(numberOfLikes)
+            /*for (let i = 0; i < heart.length; i++) {}*/
+
+
+            if (likeHeart.style.display = "block") {
+                numberOfLikes++
+                likesNumber.innerHTML = numberOfLikes
+                likeHeart.style.display = "none"
+                dislikeHeart.style.display = "block"
+            } else if (dislikeHeart.style.display = "block") {
+                numberOfLikes--
+                likesNumber.innerHTML = numberOfLikes
+                dislikeHeart.style.display = "none"
+                likeHeart.style.display = "block"
+                console.log(numberOfLikes)
+                console.log("gagné")
+            }
+
+
+        })
+        console.log('ok')
+    }
+}
+
+
+
 
 
 function fillPage(medias) {
@@ -45,17 +89,3 @@ function fillPage(medias) {
         }
     });
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-

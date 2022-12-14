@@ -260,6 +260,7 @@
     grid-template-columns: repeat(3, 30%);
     row-gap: 30px;
     justify-content: space-between;
+    margin-bottom: 100px;
 }
 
 .picture img,
@@ -274,15 +275,27 @@ video {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1.1em;
 }
 
-.picture p,
-.picture span,
-.video p,
-.video span {
-    color: #901C1C;
-    font-size: 1.1em;
+.picture .title,
+.video .title {
     margin: 0;
+}
+
+.likes-count {
+    display: flex;
+    align-items: center;
+    color: #901C1C;
+    ;
+}
+
+.likes-count .fa-heart {
+    margin: 0 10px;
+}
+
+.fa-solid.dislike-heart {
+    display: none;
 }
 
 #main .label {
