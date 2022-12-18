@@ -12,17 +12,19 @@ function mediaFactory(data) {
         const p = document.createElement('p')
         const divLikes = document.createElement('div')
         const span = document.createElement('span')
-        const imageEmptyHeart = document.createElement('i')
-        const imageFullHeart = document.createElement('i')
+        const heart = document.createElement('i')
         divMedia.setAttribute('class', "picture media")
         img.setAttribute('src', picture)
+        img.setAttribute("tabindex", "0")
         img.setAttribute('alt', `Titre de la photo : ${title}. Cliquez sur la photo pour l'agrandir`)
         divDescription.setAttribute('class', "description")
         p.setAttribute('class', "title")
         divLikes.setAttribute('class', "likes-count")
         span.setAttribute('class', "likes-number")
-        imageEmptyHeart.setAttribute('class', "fa-regular fa-heart like-heart", 'aria-hidden', true, 'title', "Nombre de likes")
-        imageFullHeart.setAttribute('class', "fa-solid fa-heart dislike-heart", 'aria-hidden', true, 'title', "Nombre de likes")
+        heart.setAttribute('class', "fa-regular fa-heart heart")
+        heart.setAttribute('aria-hidden', true)
+        heart.setAttribute('title', 'Nombre de likes')
+        heart.setAttribute("tabindex", "0")
         p.textContent = title
         span.textContent = likes
         divMedia.appendChild(img)
@@ -30,8 +32,7 @@ function mediaFactory(data) {
         divDescription.appendChild(p)
         divDescription.appendChild(divLikes)
         divLikes.appendChild(span)
-        divLikes.appendChild(imageEmptyHeart)
-        divLikes.appendChild(imageFullHeart)
+        divLikes.appendChild(heart)
         return (divMedia)
     }
     return { photographerId, date, picture, likes, title, price, getMediaDOM }
@@ -52,8 +53,7 @@ function videoFactory(data) {
         const p = document.createElement('p')
         const divLikes = document.createElement('div')
         const span = document.createElement('span')
-        const imageEmptyHeart = document.createElement('i')
-        const imageFullHeart = document.createElement('i')
+        const heart = document.createElement('i')
         divMedia.setAttribute('class', "video media")
         video.setAttribute('src', clip)
         video.setAttribute('controls', 'controls')
@@ -62,8 +62,10 @@ function videoFactory(data) {
         p.setAttribute('class', "title")
         divLikes.setAttribute('class', "likes-count")
         span.setAttribute('class', "likes-number")
-        imageEmptyHeart.setAttribute('class', "fa-regular fa-heart like-heart", 'aria-hidden', true, 'title', "Nombre de likes")
-        imageFullHeart.setAttribute('class', "fa-solid fa-heart dislike-heart", 'aria-hidden', true, 'title', "Nombre de likes")
+        heart.setAttribute('class', "fa-regular fa-heart heart")
+        heart.setAttribute('aria-hidden', true)
+        heart.setAttribute('title', "Nombre de likes")
+        heart.setAttribute("tabindex", "0")
         p.textContent = title
         span.textContent = likes;
         divMedia.appendChild(video)
@@ -71,8 +73,7 @@ function videoFactory(data) {
         divDescription.appendChild(p)
         divDescription.appendChild(divLikes)
         divLikes.appendChild(span)
-        divLikes.appendChild(imageEmptyHeart)
-        divLikes.appendChild(imageFullHeart)
+        divLikes.appendChild(heart)
         return (divMedia)
     }
     return { photographerId, date, clip, likes, title, price, getVideoDOM }
@@ -101,18 +102,6 @@ function videoFactory(data) {
 }*/
 
 
-/*function incrementLikes() {
-    displayMedia(medias)
-    const likesHeart = document.querySelector(".fa-regular")
-    likesHeart.addEventListener("click", incrementLikes())
-    console.log(likesHeart)
-    console.log("salut")
-    let numberOfLikes = likes
-    console.log(numberOfLikes)
-    numberOfLikes++
-}
-
-incrementLikes()*/
 
 
 

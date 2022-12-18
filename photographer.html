@@ -47,14 +47,15 @@
           </button>
           <ul class="dropdown" role="listbox" aria-expanded="true">
             <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option"
-              onclick="sortByLikes(galleryPhotographer)">
-              Popularité<button class="fa-solid fa-chevron-up" type="button" data-toggle="dropup" aria-haspopup="true"
-                aria-expanded="true" aria-labelledby="Fermer le menu de tri" onclick="toggleFilters()"></button></li>
+              onclick="sortByLikes(galleryPhotographer)" tabindex="0">
+              Popularité<button class="fa-solid fa-chevron-up dropup_button" type="button" data-toggle="dropup"
+                aria-haspopup="true" aria-expanded="true" aria-labelledby="Fermer le menu de tri"
+                onclick="toggleFilters()"></button></li>
             <li class="date dropdown-item" aria-label="Tri par date" role="option"
-              onclick="sortByDate(galleryPhotographer)">Date
+              onclick="sortByDate(galleryPhotographer)" tabindex="0">Date
             </li>
             <li class="titre dropdown-item" aria-label="Tri par titre" role="option"
-              onclick="sortByTitle(galleryPhotographer)">Titre</li>
+              onclick="sortByTitle(galleryPhotographer)" tabindex="0">Titre</li>
           </ul>
         </div>
       </div>
@@ -78,16 +79,16 @@
       <form class="form-contact" aria-label="Formulaire de contact du photographe" method="post">
         <label for="prenom" id="prenom">Prénom</label>
         <input type="text" name="prenom" id="prenom" class="prenom" aria-labelledby="prenom" aria-required=true />
-        <span class="erreur erreur-prenom"></span>
+        <span class="error erreur-prenom"></span>
         <label for="nom" id="nom">Nom</label>
         <input type="text" name="nom" id="nom" class="nom" aria-labelledby="nom" aria-required=true />
-        <span class="erreur erreur-nom"></span>
+        <span class="error erreur-nom"></span>
         <label for="email" id="email">Email</label>
         <input type="text" name="email" id="email" class="email" aria-labelledby="email" aria-required=true />
-        <span class="erreur erreur-email"></span>
+        <span class="error erreur-email"></span>
         <label for="message" id="message">Votre message</label>
         <input type="text" name="message" id="message" class="message" aria-labelledby="message" aria-required=true />
-        <span class="erreur erreur-message"></span>
+        <span class="error erreur-message"></span>
         <button class="send_button" type="submit" aria-labelledby="Envoyer ma demande" role="button">Envoyer</button>
       </form>
     </div>

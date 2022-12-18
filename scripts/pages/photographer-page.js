@@ -28,48 +28,87 @@ let galleryPhotographer
 }*/
 
 
+
 function displayMedia(medias) {
     galleryPhotographer = medias
     fillPage(medias)
+    likesTotal()
 
-    const heart = document.querySelector(".fa-heart")
-    const likeHeart = document.querySelector(".like-heart")
-    const dislikeHeart = document.querySelector(".dislike-heart")
-    const likesNumber = document.querySelector(".likes-number")
-    heart.addEventListener('click', incrementLikes(medias));
+    // Likes count for each media
 
+    const heartIcon = document.querySelectorAll(".heart")
 
-    function incrementLikes() {
-        medias.forEach((media) => {
-            let numberOfLikes = media.likes
+    heartIcon.forEach(like =>
+        like.addEventListener("click", (event) => {
+            /*console.log(event.target)*/
+            let numberDiv = event.target.previousElementSibling
+            event.target.classList.toggle("liked")
+            let numberOfLikes = parseInt(numberDiv.innerHTML)
             console.log(numberOfLikes)
-            numberOfLikes++
-            console.log(numberOfLikes)
-            /*for (let i = 0; i < heart.length; i++) {}*/
-
-
-            if (likeHeart.style.display = "block") {
-                numberOfLikes++
-                likesNumber.innerHTML = numberOfLikes
-                likeHeart.style.display = "none"
-                dislikeHeart.style.display = "block"
-            } else if (dislikeHeart.style.display = "block") {
-                numberOfLikes--
-                likesNumber.innerHTML = numberOfLikes
-                dislikeHeart.style.display = "none"
-                likeHeart.style.display = "block"
-                console.log(numberOfLikes)
-                console.log("gagné")
+            if (event.target.classList.contains("liked")) {
+                /*numberOfLikes++*/
+                let increment = numberOfLikes + 1
+                numberDiv.innerHTML = increment
+                event.target.classList.replace("fa-regular", "fa-solid");
+            } else {
+                /*numberOfLikes--*/
+                let increment = numberOfLikes - 1
+                numberDiv.innerHTML = increment
+                event.target.classList.replace("fa-solid", "fa-regular");
             }
+        }))
 
+    // Total likes counter
 
-        })
-        console.log('ok')
+    function likesTotal() {
+        let sumLikes = 0
+        let likesNumberDiv = document.querySelectorAll(".likes-number");
+
+        likesNumberDiv.forEach((like) => {
+            let likes = parseInt(like.innerHTML)
+            /*let likes = parseInt(likesNumberDiv.innerHTML)*/
+            sumLikes += likes
+        });
+        console.log(sumLikes);
+        return sumLikes
     }
+
+    /*function displayChiffre() {
+        let totalLikes = document.querySelector(".number")
+        totalLikes.innerHTML = sumLikes
+        /*totalLikes.innerHTML = likesNumberDiv.value
+        console.log(totalLikes)
+        console.log("coucou")
+    }
+    displayChiffre()*/
+
+    /*let totalLikes = document.querySelector(".total-likes")
+    totalLikes.textContent = "sumLikes"*/
+
+
+
+
+
+
+
+    /*
+       for (i = 0; i < likeHeart.length; i++) {
+           likeHeart[i].addEventListener('click', incrementLikes);
+       }
+       /*for (var i = 0; i < likeHeart.length; i++) {
+           likeHeart[i].addEventListener('click', function () {
+               numberOfLikes++;
+               likesNumber.innerHTML = numberOfLikes;
+               console.log('salut')
+               document.querySelectorAll(".like-heart")[i].style.display = "none";
+               document.querySelectorAll(".dislike-heart")[i].style.display = "block";
+               document.querySelector(".likes-total").innerHTML = numberOfLikes
+           });
+       }*/
+
+
+
 }
-
-
-
 
 
 function fillPage(medias) {
@@ -89,3 +128,9 @@ function fillPage(medias) {
         }
     });
 };
+
+
+
+
+
+

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="css/photographer.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f68a297db4.js" crossorigin="anonymous"></script>
+    <title>Test</title>
+</head>
+
+<body>
+
+    <div class="picture media">
+        <div class="description">
+            <p>titre</p>
+            <div class="likes-count">
+                <span class="likes-number">56</span>
+                <i class="fa-regular like-heart heart fa-heart"></i>
+                <i class="fa-solid dislike-heart heart fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="picture media">
+        <div class="description">
+            <p>titre</p>
+            <div class="likes-count">
+                <span class="likes-number">37</span>
+                <i class="fa-regular like-heart heart fa-heart"></i>
+                <i class="fa-solid dislike-heart heart fa-heart"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="compteur">
+        <span class="likes-total"></span>
+        <i class="fa-solid fa-heart"></i>
+    </div>
+
+</body>
+<script>
+
+    let heart = document.querySelectorAll(".heart")
+    console.log(heart)
+    let likeHeart = document.querySelectorAll(".like-heart")
+    console.log(likeHeart)
+    let dislikeHeart = document.querySelectorAll(".dislike-heart")
+    let element = document.querySelectorAll(".likes-number")
+    let value = element.innerHTML
+    let total = document.querySelector(".likes-total")
+    total.innerHTML = element.value
+
+    /*heart.addEventListener('click', () => {
+        value++
+        element.innerHTML = value
+    })*/
+
+
+
+
+
+    /*document.querySelectorAll(".like-heart").forEach(like =>
+        like.addEventListener("click", () => {
+            value++
+            element.innerHTML = value
+            likeHeart.style.display = "none"
+            dislikeHeart.style.display = "block"
+            total.innerHTML = value
+
+        }))*/
+
+
+    function incrementLikes() {
+        value++
+        element.innerHTML = value
+        likeHeart.style.display = "none"
+        dislikeHeart.style.display = "block"
+        total.innerHTML = value
+    }
+
+    /*// const hearts_list = document.querySelectorAll(".like-heart");
+    for (var i = 0; i < document.querySelectorAll(".like-heart").length; i++) {
+
+        console.log('heart was: ', document.querySelectorAll(".like-heart")[i]);
+
+        // if click increment or decrement :
+
+        value++
+        document.querySelectorAll(".likes-number")[i] = value;
+        document.querySelectorAll(".like-heart")[i].style.display = "none";
+        document.querySelectorAll(".dislike-heart")[i].style.display = "block";
+        document.querySelector(".likes-total").innerHTML = value
+
+    }*/
+
+
+
+    // for (const h of hearts_list) {
+    //     console.log('heart is: ', h);
+    //     h.addEventListener('click', incrementLikes);
+    // };
+
+
+    // likeHeart.addEventListener('click', incrementLikes);
+
+    // function decrementLikes() {
+    //     value--
+    //     element.innerHTML = value
+    //     likeHeart.style.display = "block"
+    //     dislikeHeart.style.display = "none"
+    // }
+
+    // dislikeHeart.addEventListener('click', decrementLikes);
+
+
+    /*document.querySelectorAll(".heart").forEach(like =>
+    like.addEventListener("click", () => {
+    /*const number = parseInt(document.querySelector(".likes-number").value)
+    total.innerHTML = value + 1
+    console.log('salut')
+    }))*/
+
+
+</script>
+
+</html>

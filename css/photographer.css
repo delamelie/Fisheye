@@ -177,7 +177,7 @@
     transform: scale(1.1);
 }
 
-.erreur {
+.error {
     font-size: 1.1em;
     color: #901C1C;
     margin-top: 10px;
@@ -246,9 +246,15 @@
 }
 
 .fa-chevron-up {
+    position: absolute;
+    right: 0;
     padding: 10px;
+    z-index: 10;
+    height: 90%;
+    width: 55px;
     background-color: #901C1C;
     border: none;
+    border: 3px solid;
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -287,15 +293,10 @@ video {
     display: flex;
     align-items: center;
     color: #901C1C;
-    ;
 }
 
-.likes-count .fa-heart {
-    margin: 0 10px;
-}
-
-.fa-solid.dislike-heart {
-    display: none;
+.fa-heart {
+    padding: 10px;
 }
 
 #main .label {
@@ -312,4 +313,12 @@ video {
     bottom: 0;
     right: 40px;
     font-size: 1.3em;
+}
+
+.total-likes {
+    border: 3px solid;
+}
+
+.number {
+    border: 3px solid;
 }
