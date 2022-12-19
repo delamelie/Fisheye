@@ -58,6 +58,13 @@ function displayMedia(medias) {
             }
         }))
 
+    heartIcon.forEach(like =>
+        like.addEventListener("keypress", (event) => {
+            if (event.key === "Enter") {
+                event.target.click();
+            }
+        }));
+
     // Total likes counter
 
     function likesTotal() {

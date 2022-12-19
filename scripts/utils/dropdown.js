@@ -9,6 +9,7 @@ function toggleFilters() {
     if (dropdown.style.display == "flex") {
         dropdown.style.display = "none";
         dropdownBtn.setAttribute('aria-expanded', 'false')
+        dropdownBtn.setAttribute('aria-hidden', 'true')
         dropupBtn.focus()
     } else {
         dropdown.style.display = "flex";
@@ -16,5 +17,8 @@ function toggleFilters() {
         popularite.focus()
     }
 }
+
+
+
 
 
