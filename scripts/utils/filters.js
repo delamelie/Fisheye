@@ -8,6 +8,7 @@ const popularity = document.querySelector(".popularite")
 
 
 function sortByLikes(medias) {
+    /*stopPropagation()*/
     pictureGallery.textContent = ""
     galleryPhotographer.sort((a, b) => (a.likes < b.likes ? 1 : -1))
     displayMedia(medias)
@@ -16,7 +17,6 @@ function sortByLikes(medias) {
 }
 
 popularity.addEventListener('keypress', (event) => {
-    event.preventDefault()
     if (event.key === 'Enter') {
         console.log('salut')
         popularity.click()
@@ -34,7 +34,6 @@ function sortByDate(medias) {
 }
 
 date.addEventListener('keypress', (event) => {
-    event.preventDefault()
     if (event.key === 'Enter') {
         console.log('lut')
         date.click()
@@ -52,7 +51,6 @@ function sortByTitle(medias) {
 }
 
 title.addEventListener('keypress', (event) => {
-    event.preventDefault()
     if (event.key === 'Enter') {
         console.log('salut')
         title.click()

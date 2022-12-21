@@ -23,21 +23,22 @@
 
     <section class="photographer-portfolio" aria-label="Portfolio du photographe">
 
-      <div class="filters">
+      <section class="filters">
         <div class="filters-label">Trier par</div>
         <div class="filters-list">
-          <button class="sort_button" type="button" aria-label="Ouvrir le menu de tri" aria-hidden="true"
-            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" aria-describedby="Ouvrir le menu de tri"
-            onclick="toggleFilters()">
+          <button class="sort_button" type="button" role="button" aria-label="Ouvrir le menu de tri" aria-hidden="true"
+            data-toggle="dropdown" aria-haspopup="listbox" aria-expanded="false"
+            aria-describedby="Ouvrir le menu de tri" onclick="toggleFilters()">
             <span class="dropdown-label">Popularité</span>
-            <i class="fa-solid fa-chevron-down"></i>
+            <span class="fa-solid fa-chevron-down"></span>
           </button>
           <ul class="dropdown" role="listbox" aria-expanded="true">
             <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option"
               onclick="sortByLikes(galleryPhotographer)" tabindex="0">
-              Popularité<button class="fa-solid fa-chevron-up dropup_button" type="button"
-                aria-label="Fermer le menu de tri" aria-hidden="true" data-toggle="dropup" aria-haspopup="true"
-                aria-expanded="true" aria-describedby="Fermer le menu de tri" onclick="toggleFilters()"></button></li>
+              Popularité<button class="dropup_button" type="button" role="button" aria-label="Fermer le menu de tri"
+                aria-hidden="true" data-toggle="dropup" aria-haspopup="listbox" aria-expanded="true"
+                aria-describedby="Fermer le menu de tri" onclick="toggleFilters()"><span
+                  class="fa-solid fa-chevron-up"></span></button></li>
             <li class="date dropdown-item" aria-label="Tri par date" role="option"
               onclick="sortByDate(galleryPhotographer)" tabindex="0">Date
             </li>
@@ -45,22 +46,21 @@
               onclick="sortByTitle(galleryPhotographer)" tabindex="0">Titre</li>
           </ul>
         </div>
-      </div>
+      </section>
 
-      <div class="picture-gallery"></div>
+      <section class="picture-gallery"></section>
     </section>
     <aside class="label"></aside>
   </main>
 
-
-  <div id="contact_modal" role="dialog" aria-describedby="Formulaire de contact du photographe">
+  <section id="contact_modal" role="dialog" aria-describedby="Formulaire de contact du photographe">
     <div class="modal">
       <header class="form-header" aria-label="En-tête du formulaire de contact">
         <div class="form-title">
           <h1 aria-label="Ouvrir la fenêtre de contact">Contactez-moi</h1>
-          <button class="close_button" type="button" aria-label="Fermer la fenêtre"
-            aria-describedby="Fermeture de la fenêtre" role="button" onclick="closeModal()"><i class="fa-solid fa-xmark"
-              aria-hidden="true"></i></button>
+          <button class="close_button modal_close_button" type="button" aria-label="Fermer la fenêtre"
+            aria-describedby="Fermeture de la fenêtre" role="button" onclick="closeModal()"><span
+              class="fa-solid fa-xmark" aria-hidden="true"></span></button>
         </div>
       </header>
 
@@ -80,9 +80,12 @@
         <button class="send_button" type="submit" aria-labelledby="Envoyer ma demande" role="button">Envoyer</button>
       </form>
     </div>
-  </div>
+  </section>
+
+  <section class="lightbox"></section>
 
   <script src="scripts/api.js"></script>
+  <script src="scripts/utils/likes.js"></script>
   <script src="scripts/factories/photographer.js"></script>
   <script src="scripts/factories/media.js"></script>
   <script src="scripts/pages/photographer-page.js"></script>
@@ -90,6 +93,7 @@
   <script src="scripts/utils/form-validator.js"></script>
   <script src="scripts/utils/dropdown.js"></script>
   <script src="scripts/utils/filters.js"></script>
+  <script src="scripts/utils/lightbox.js"></script>
 </body>
 
 </html>

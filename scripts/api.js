@@ -19,6 +19,7 @@ function fetchData() {
         .then(data => {
             const galleryPhotographer = data.media.filter(media => media.photographerId == id)
             displayMedia(galleryPhotographer)
+            displayLightbox(galleryPhotographer)
             console.log(galleryPhotographer)
             const currentPhotographer = data.photographers.find(photographer => photographer.id == id);
             displayPhotographerData(currentPhotographer)

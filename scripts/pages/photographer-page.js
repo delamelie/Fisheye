@@ -1,20 +1,20 @@
-// Display photographers data
+// Display photographer's data
 
 function displayPhotographerData(profile) {
+    //Display header
     const photographerHeader = document.querySelector(".header-main-photographer")
-    const photographerPageModel = photographerPageFactory(profile);
-    const photographerPageDOM = photographerPageModel.getPhotographerDOM();
-    photographerHeader.innerHTML = photographerPageDOM;
+    photographerHeader.innerHTML = photographerPageFactory(profile).getPhotographerDOM()
 
-    const label = document.querySelector(".label")
-    const labelModel = labelFactory(profile);
-    const labelDOM = labelModel.getLabelDOM();
-    label.innerHTML = labelDOM;
-
+    // Display photographer's name in modal
     const modalHeader = document.querySelector(".form-header")
     const modalModel = modalFactory(profile);
-    const modalDOM = modalModel.getModalDOM();
-    modalHeader.appendChild(modalDOM);
+    modalHeader.appendChild(modalModel.getModalDOM())
+
+    // Display label
+    const label = document.querySelector(".label")
+    label.innerHTML = labelFactory(profile).getLabelDOM()
+    let totalLikesDiv = document.querySelector(".total-likes-number")
+    totalLikesDiv.innerHTML = likesTotal()
 };
 
 
@@ -27,36 +27,42 @@ let galleryPhotographer
     fillPage(medias)
 }*/
 
-
-
 function displayMedia(medias) {
     galleryPhotographer = medias
     fillPage(medias)
-    likesTotal()
 
     // Likes count for each media
 
     const heartIcon = document.querySelectorAll(".heart")
+    /*let totalLikesDiv = document.querySelector(".total-likes-number")*/
+    /*let total = parseInt(totalLikesDiv.innerHTML)*/
 
-    heartIcon.forEach(like =>
-        like.addEventListener("click", (event) => {
-            /*console.log(event.target)*/
-            let numberDiv = event.target.previousElementSibling
-            event.target.classList.toggle("liked")
-            let numberOfLikes = parseInt(numberDiv.innerHTML)
-            console.log(numberOfLikes)
-            if (event.target.classList.contains("liked")) {
-                /*numberOfLikes++*/
-                let increment = numberOfLikes + 1
-                numberDiv.innerHTML = increment
-                event.target.classList.replace("fa-regular", "fa-solid");
-            } else {
-                /*numberOfLikes--*/
-                let increment = numberOfLikes - 1
-                numberDiv.innerHTML = increment
-                event.target.classList.replace("fa-solid", "fa-regular");
-            }
-        }))
+    function heartIncrement() {
+        heartIcon.forEach(like =>
+            like.addEventListener("click", (event) => {
+                console.log(event.target)
+                let numberDiv = event.target.previousElementSibling
+                event.target.classList.toggle("liked")
+                let numberOfLikes = parseInt(numberDiv.innerHTML)
+                if (event.target.classList.contains("liked")) {
+                    /*numberOfLikes++*/
+                    let increment = numberOfLikes + 1
+                    /*let incrementTotal = total + 1*/
+                    numberDiv.innerHTML = increment
+                    event.target.classList.replace("fa-regular", "fa-solid");
+                    /*totalLikesDiv.innerHTML = incrementTotal*/
+                } else {
+                    /*numberOfLikes--*/
+                    let increment = numberOfLikes - 1
+                    numberDiv.innerHTML = increment
+                    event.target.classList.replace("fa-solid", "fa-regular");
+                    /*totalLikesDiv.innerHTML = increment*/
+                }
+                likesTotal()
+                console.log(likesTotal())
+            }))
+    }
+    heartIncrement()
 
     heartIcon.forEach(like =>
         like.addEventListener("keypress", (event) => {
@@ -64,38 +70,6 @@ function displayMedia(medias) {
                 event.target.click();
             }
         }));
-
-    // Total likes counter
-
-    function likesTotal() {
-        let sumLikes = 0
-        let likesNumberDiv = document.querySelectorAll(".likes-number");
-
-        likesNumberDiv.forEach((like) => {
-            let likes = parseInt(like.innerHTML)
-            /*let likes = parseInt(likesNumberDiv.innerHTML)*/
-            sumLikes += likes
-        });
-        console.log(sumLikes);
-        return sumLikes
-    }
-
-    /*function displayChiffre() {
-        let totalLikes = document.querySelector(".number")
-        totalLikes.innerHTML = sumLikes
-        /*totalLikes.innerHTML = likesNumberDiv.value
-        console.log(totalLikes)
-        console.log("coucou")
-    }
-    displayChiffre()*/
-
-    /*let totalLikes = document.querySelector(".total-likes")
-    totalLikes.textContent = "sumLikes"*/
-
-
-
-
-
 
 
     /*
@@ -113,8 +87,6 @@ function displayMedia(medias) {
            });
        }*/
 
-
-
 }
 
 
@@ -125,16 +97,42 @@ function fillPage(medias) {
         let video = media.hasOwnProperty('video')
         if (image == true) {
             const mediaPageModel = mediaFactory(media);
-            const mediaPageDOM = mediaPageModel.getMediaDOM();
-            /*pictureGallery.innerHTML = mediaPageDOM;*/
-            pictureGallery.appendChild(mediaPageDOM)
+            pictureGallery.appendChild(mediaPageModel.getMediaDOM())
         } else if (video == true) {
             const videoPageModel = videoFactory(media);
-            const videoPageDOM = videoPageModel.getVideoDOM();
-            pictureGallery.appendChild(videoPageDOM)
+            pictureGallery.appendChild(videoPageModel.getVideoDOM())
         }
     });
 };
+
+
+// Display lightbox
+
+function displayLightbox(medias) {
+    galleryPhotographer = medias
+    medias.forEach((media) => {
+        let image = media.hasOwnProperty('image')
+        let video = media.hasOwnProperty('video')
+        if (image == true) {
+            document.querySelector(".lightbox").innerHTML = lightboxImageFactory(media).getLightboxImageDOM();
+            console.log("coucou")
+        } else if (video == true) {
+            document.querySelector(".lightbox").innerHTML = lightboxVideoFactory(media).getLightboxVideoDOM();
+            console.log("hej")
+        }
+    });
+};
+
+
+
+
+
+
+
+
+
+
+
 
 
 

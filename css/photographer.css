@@ -20,22 +20,22 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
     padding: 0 50px;
+    background-color: #FAFAFA;
 }
 
 .header-main-photographer h1 {
+    margin-bottom: 0;
     color: #D3573C;
     font-size: 3.5em;
-    margin-bottom: 0;
 }
 
 .header-main-photographer h2 {
+    margin: 0;
     color: #901C1C;
     font-size: 2em;
-    margin: 0;
 }
 
 .header-main-photographer p {
@@ -44,22 +44,22 @@
 }
 
 .header-main-photographer img {
-    border-radius: 50%;
     height: 200px;
     width: 200px;
     object-fit: cover;
+    border-radius: 50%;
     box-shadow: 2px 5px 15px#e0e4dc;
 }
 
 .contact_button,
 .send_button,
 .sort_button {
+    width: 170px;
+    height: 70px;
+    padding: 11px;
     font-size: 20px;
     font-weight: bold;
     color: white;
-    padding: 11px;
-    width: 170px;
-    height: 70px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
@@ -84,26 +84,26 @@
     display: none;
     width: 100%;
     height: 100%;
-    top: 0;
     position: absolute;
+    top: 0;
     overflow: auto;
     overscroll-behavior: contain;
     animation: modal 0.3s;
 }
 
 .modal {
-    border-radius: 5px;
-    background-color: #DB8876;
-    width: 50%;
-    max-width: 600px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    padding: 35px;
     position: relative;
-    margin: 0 auto;
     top: 10%;
+    width: 50%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 35px;
+    border-radius: 5px;
+    background-color: #DB8876;
 }
 
 .form-header {
@@ -117,12 +117,12 @@
     justify-content: space-between;
 }
 
-.close_button {
+.modal_close_button {
     background-color: #DB8876;
     border: transparent
 }
 
-.close_button .fa-xmark {
+.modal_close_button .fa-xmark {
     cursor: pointer;
     font-size: 46px;
     color: #ffffff;
@@ -137,9 +137,9 @@
 
 .modal form {
     display: flex;
-    width: 100%;
     flex-direction: column;
     align-items: flex-start;
+    width: 100%;
 }
 
 .modal form label {
@@ -150,8 +150,8 @@
 .modal form div {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: self-start;
+    width: 100%;
     margin-bottom: 26px;
 }
 
@@ -178,10 +178,10 @@
 }
 
 .error {
-    font-size: 1.1em;
-    color: #901C1C;
     margin-top: 10px;
     margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #901C1C;
     transition: 0.3s;
 }
 
@@ -204,61 +204,60 @@
 }
 
 .filters-list {
-    margin-left: 40px;
     display: flex;
     position: relative;
+    margin-left: 40px;
 }
 
 .dropdown {
+    display: none;
+    position: absolute;
+    width: 170px;
     flex-direction: column;
     list-style-type: none;
-    display: none;
     margin: 0;
     padding: 0;
     font-size: 20px;
     font-weight: bold;
     color: white;
-    width: 170px;
     border: none;
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
-    position: absolute;
 }
 
 .dropdown-item {
-    height: 68px;
     display: flex;
     align-items: center;
-    padding: 0 18px;
     position: relative;
+    height: 68px;
+    padding: 0 18px;
 }
 
 .dropdown-item:nth-child(1)::after,
 .dropdown-item:nth-child(2)::after {
     content: "";
-    height: 2px;
     position: absolute;
     left: 10%;
     right: 10%;
     bottom: 0;
+    height: 1px;
     background-color: white;
 }
 
-.fa-chevron-up {
+.dropup_button {
     position: absolute;
     right: 0;
-    padding: 10px;
-    z-index: 10;
-    height: 90%;
+    height: 100%;
     width: 55px;
-    background-color: #901C1C;
+    /*background-color: #901C1C;*/
+    background-color: green;
     border: none;
-    border: 3px solid;
     color: white;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    border: 3px solid blue;
 }
 
 .picture-gallery {
@@ -269,11 +268,15 @@
     margin-bottom: 100px;
 }
 
+.artwork {
+    cursor: pointer;
+}
+
 .picture img,
 video {
     width: 100%;
-    object-fit: cover;
     height: 300px;
+    object-fit: cover;
     border-radius: 5px;
 }
 
@@ -282,6 +285,7 @@ video {
     justify-content: space-between;
     align-items: center;
     font-size: 1.1em;
+    color: #901C1C;
 }
 
 .picture .title,
@@ -292,7 +296,6 @@ video {
 .likes-count {
     display: flex;
     align-items: center;
-    color: #901C1C;
 }
 
 .fa-heart {
@@ -300,25 +303,63 @@ video {
 }
 
 #main .label {
-    box-sizing: border-box;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 380px;
-    height: 70px;
-    padding: 0 30px;
-    border-radius: 5px;
-    background-color: #DB8876;
     position: fixed;
     bottom: 0;
     right: 40px;
+    width: 380px;
+    height: 70px;
+    box-sizing: border-box;
+    padding: 0 30px;
+    border-radius: 5px;
+    background-color: #DB8876;
     font-size: 1.3em;
 }
 
-.total-likes {
-    border: 3px solid;
+.lightbox {
+    color: #901C1C;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0%;
+    right: 0%;
+    top: 0%;
+    bottom: 0%;
 }
 
-.number {
-    border: 3px solid;
+.lightbox_close_button {
+    position: absolute;
+    top: 2%;
+    right: 15%;
+    border: transparent;
+    background-color: #ffffff;
+}
+
+.lightbox_close_button .fa-xmark,
+.fa-chevron-left,
+.fa-chevron-right {
+    cursor: pointer;
+    font-size: 34px;
+    color: #901C1C;
+}
+
+.media-artwork {
+    width: 850px;
+    margin: 0 20px;
+}
+
+.media-artwork img,
+.media-artwork video {
+    object-fit: cover;
+    width: 100%;
+    height: 850px;
+    border-radius: 5px;
+}
+
+.lightbox-artwork-title {
+    font-size: 1.2em;
+    margin: 10px 0;
 }

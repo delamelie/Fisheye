@@ -80,8 +80,8 @@ function labelFactory(data) {
     function getLabelDOM() {
         const likesAndFees = `
         <span class="total-likes" aria-label="nombre de likes">
-            <span class="number"></span >
-            <i class="fa-solid fa-heart" aria-hidden="true" title="Nombre de likes"></i>
+            <span class="total-likes-number"></span >
+            <span class="fa-solid fa-heart" aria-hidden="true" title="Nombre de likes"></span>
         </span >
         <span class="price">${price}€/jour</span>
         `

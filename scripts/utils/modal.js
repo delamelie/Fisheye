@@ -5,7 +5,7 @@ const header = document.querySelector('.header-page-photographer')
 const main = document.querySelector('#main')
 const contactBtn = document.querySelector('.contact_button')
 const closeBtn = document.querySelector('.close_button')
-const body = document.querySelector('body')
+/*const body = document.querySelector('body')*/
 
 
 // Open and close modal
