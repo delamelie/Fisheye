@@ -46,7 +46,7 @@ function photographerPageFactory(data) {
             <h2>${city}, ${country}</h2>
             <p>${tagline}</p>
         </div>
-            <button class="contact_button" onclick="displayModal()" role="button" aria-labelledby="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+            <button class="contact_button" onclick="openModal()" role="button" aria-labelledby="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
             <img src="${picture}" alt= "Photo de profil de ${name}">
         `
         return (photographerDetailsTemplate)

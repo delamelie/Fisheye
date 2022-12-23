@@ -250,14 +250,12 @@
     right: 0;
     height: 100%;
     width: 55px;
-    /*background-color: #901C1C;*/
-    background-color: green;
+    background-color: #901C1C;
     border: none;
     color: white;
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border: 3px solid blue;
 }
 
 .picture-gallery {
@@ -330,20 +328,19 @@ video {
     bottom: 0%;
 }
 
-.lightbox_close_button {
-    position: absolute;
-    top: 2%;
-    right: 15%;
+.lightbox_close_button,
+.slide_button {
+    cursor: pointer;
+    font-size: 34px;
+    color: #901C1C;
     border: transparent;
     background-color: #ffffff;
 }
 
-.lightbox_close_button .fa-xmark,
-.fa-chevron-left,
-.fa-chevron-right {
-    cursor: pointer;
-    font-size: 34px;
-    color: #901C1C;
+.lightbox_close_button {
+    position: absolute;
+    top: 2%;
+    right: 15%;
 }
 
 .media-artwork {

@@ -80,6 +80,7 @@ function validate(event) {
         registrationConfirm();
     } else {
         formValid = true;
+        /*console.log("bizarre")*/
     }
 }
 

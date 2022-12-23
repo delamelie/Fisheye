@@ -5,40 +5,33 @@ const header = document.querySelector('.header-page-photographer')
 const main = document.querySelector('#main')
 const contactBtn = document.querySelector('.contact_button')
 const closeBtn = document.querySelector('.close_button')
-/*const body = document.querySelector('body')*/
+let lastFocusedElement
 
 
 // Open and close modal
 
-function displayModal() {
+function openModal() {
+  lastFocusedElement = document.querySelector(':focus')
   modal.style.display = "block";
   header.setAttribute('aria-hidden', 'true')
   main.setAttribute('aria-hidden', 'true')
-  modal.setAttribute('aria-hidden', 'false')
+  modal.removeAttribute('aria-hidden')
   header.classList.add("opacity")
   main.classList.add("opacity")
   closeBtn.focus()
 }
 
 function closeModal() {
+  lastFocusedElement.focus()
   modal.style.display = "none";
-  header.setAttribute('aria-hidden', 'false')
-  main.setAttribute('aria-hidden', 'false')
+  header.removeAttribute('aria-hidden')
+  main.removeAttribute('aria-hidden')
   modal.setAttribute('aria-hidden', 'true')
   header.classList.remove("opacity")
   main.classList.remove("opacity")
-  contactBtn.focus()
+  /*contactBtn.focus()*/
 }
 
-/*
-// Close modal when escape key is pressed
-(document).on('keydown', e => {
-  const keyCode = e.keyCode ? e.keyCode : e.which
-
-  if (modal.getAttribute('aria-hidden', false) && keyCode === 27) {
-    closeModal()
-  }
-})*/
 
 // Close modal with Escape key
 
@@ -47,6 +40,30 @@ document.addEventListener('keydown', (event) => {
     closeModal()
   }
 })
+
+
+// Keep focus inside modal
+
+const focusableElements = "input, button"
+const firstFocusableElement = modal.querySelectorAll(focusableElements)[0];
+const focusableArray = modal.querySelectorAll(focusableElements);
+const lastFocusableElement = focusableArray[focusableArray.length - 1];
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Tab') {
+    if (document.activeElement === lastFocusableElement) {
+      firstFocusableElement.focus();
+      event.preventDefault();
+    }
+  } else if (event.shiftKey) {
+    if (document.activeElement === firstFocusableElement) {
+      lastFocusableElement.focus();
+      event.preventDefault();
+    }
+  }
+});
+
+
 
 
 

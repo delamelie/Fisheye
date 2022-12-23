@@ -1,4 +1,4 @@
-// Retrieve photographers data from json file
+// Retrieve all photographers data from json file
 
 function fetchDataHomepage() {
     fetch('./data/photographers.json')
@@ -9,7 +9,7 @@ function fetchDataHomepage() {
 fetchDataHomepage()
 
 
-// Retrieve URL params with photographer id
+// Retrieve each photographer and gallery form URL params with photographer id
 
 const id = new URL(document.location).searchParams.get('id')
 
@@ -18,11 +18,9 @@ function fetchData() {
         .then(response => response.json())
         .then(data => {
             const galleryPhotographer = data.media.filter(media => media.photographerId == id)
-            displayMedia(galleryPhotographer)
-            displayLightbox(galleryPhotographer)
-            console.log(galleryPhotographer)
             const currentPhotographer = data.photographers.find(photographer => photographer.id == id);
             displayPhotographerData(currentPhotographer)
+            displayMedia(galleryPhotographer)
         })
         .catch(error => console.log("An error occurred", error));
 }
