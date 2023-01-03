@@ -1,4 +1,4 @@
-const pictureGallery = document.querySelector(".picture-gallery");
+const pictureGallery = document.querySelector(".picture-gallery")
 const dropdownLabel = document.querySelector(".dropdown-label")
 const title = document.querySelector(".titre")
 const date = document.querySelector(".date")
@@ -15,8 +15,8 @@ function sortByLikes(medias) {
     dropdownLabel.innerHTML = "Popularité"
 }
 
-popularity.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
+popularity.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
         popularity.click()
     }
 })
@@ -32,8 +32,8 @@ function sortByDate(medias) {
     dropdownLabel.innerHTML = "Date"
 }
 
-date.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
+date.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
         date.click()
     }
 })
@@ -49,8 +49,8 @@ function sortByTitle(medias) {
     dropdownLabel.innerHTML = "Titre"
 }
 
-title.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
+title.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
         title.click()
     }
 })

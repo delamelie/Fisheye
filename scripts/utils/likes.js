@@ -2,7 +2,7 @@
 
 function likesTotal() {
     let sumLikes = 0
-    let likesNumberDiv = document.querySelectorAll(".likes-number");
+    let likesNumberDiv = document.querySelectorAll(".likes-number")
 
     likesNumberDiv.forEach((like) => {
         let likes = parseInt(like.innerHTML)
@@ -25,15 +25,13 @@ function heartIncrement() {
             let totalLikes = parseInt(totalLikesDiv.innerHTML)
             if (event.target.classList.contains("liked")) {
                 /*numberOfLikes++*/
-                let increment = numberOfLikes + 1
-                numberDiv.innerHTML = increment
-                event.target.classList.replace("fa-regular", "fa-solid");
+                numberDiv.innerHTML = numberOfLikes + 1
+                event.target.classList.replace("fa-regular", "fa-solid")
                 totalLikesDiv.innerHTML = totalLikes + 1
             } else {
                 /*numberOfLikes--*/
-                let increment = numberOfLikes - 1
-                numberDiv.innerHTML = increment
-                event.target.classList.replace("fa-solid", "fa-regular");
+                numberDiv.innerHTML = numberOfLikes - 1
+                event.target.classList.replace("fa-solid", "fa-regular")
                 totalLikesDiv.innerHTML = totalLikes - 1
             }
             /*likesTotal()*/
@@ -41,14 +39,14 @@ function heartIncrement() {
 }
 
 
-function heartIncrementKeybord() {
+function heartIncrementKeyboard() {
     const heartIcon = document.querySelectorAll(".heart")
     heartIcon.forEach(like =>
-        like.addEventListener("keypress", (event) => {
+        like.addEventListener("keydown", (event) => {
             if (event.key === "Enter") {
                 event.target.click();
             }
-        }));
+        }))
 }
 
 

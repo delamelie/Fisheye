@@ -8,6 +8,16 @@
     }
 }
 
+@keyframes lightbox {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
 .header-page-photographer {
     display: flex;
     flex-direction: row;
@@ -88,7 +98,7 @@
     top: 0;
     overflow: auto;
     overscroll-behavior: contain;
-    animation: modal 0.3s;
+    animation: modal 0.5s;
 }
 
 .modal {
@@ -118,6 +128,8 @@
 }
 
 .modal_close_button {
+    height: 100px;
+    width: 100px;
     background-color: #DB8876;
     border: transparent
 }
@@ -160,7 +172,6 @@
     height: 56px;
     border: none;
     border-radius: 5px;
-    border: none;
 }
 
 .form-contact .message {
@@ -196,7 +207,7 @@
 .filters {
     display: flex;
     align-items: baseline;
-    margin: 40px 0 100px 0;
+    margin: 40px 0;
 }
 
 .filters-label {
@@ -205,13 +216,11 @@
 
 .filters-list {
     display: flex;
-    position: relative;
     margin-left: 40px;
 }
 
 .dropdown {
     display: none;
-    position: absolute;
     width: 170px;
     flex-direction: column;
     list-style-type: none;
@@ -256,6 +265,7 @@
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    border-top-right-radius: 5px;
 }
 
 .picture-gallery {
@@ -300,6 +310,10 @@ video {
     padding: 10px;
 }
 
+.heart {
+    cursor: pointer;
+}
+
 #main .label {
     display: flex;
     justify-content: space-between;
@@ -321,16 +335,25 @@ video {
     display: none;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    /*position: absolute;
     left: 0%;
     right: 0%;
     top: 0%;
-    bottom: 0%;
+    bottom: 0%;*/
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /*z-index: 10;*/
+    animation: lightbox 0.5s;
 }
 
 .lightbox_close_button,
 .slide_button {
     cursor: pointer;
+    height: 100px;
+    width: 100px;
     font-size: 34px;
     color: #901C1C;
     border: transparent;

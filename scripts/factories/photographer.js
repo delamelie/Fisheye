@@ -6,22 +6,22 @@ function photographerFactory(data) {
     const picture = `assets/photographers/Photographers_ID/${portrait}`
 
     function getUserCardDOM() {
-        const article = document.createElement('article')
-        const link = document.createElement('a')
-        const img = document.createElement('img')
-        const h2 = document.createElement('h2')
-        const h3 = document.createElement('h3')
-        const h4 = document.createElement('h4')
-        const p = document.createElement('p')
+        const article = document.createElement("article")
+        const link = document.createElement("a")
+        const img = document.createElement("img")
+        const h2 = document.createElement("h2")
+        const h3 = document.createElement("h3")
+        const h4 = document.createElement("h4")
+        const p = document.createElement("p")
         article.appendChild(link)
         link.appendChild(img)
         link.appendChild(h2)
         article.appendChild(h3)
         article.appendChild(h4)
         article.appendChild(p)
-        link.setAttribute('href', `photographer.html?id=${id}`)
-        img.setAttribute('src', picture)
-        img.setAttribute('alt', `Photo de profil du photographe ${name}.Cliquez sur la photo pour accéder à la page du photographe`)
+        link.setAttribute("href", `photographer.html?id=${id}`)
+        img.setAttribute("src", picture)
+        img.setAttribute("alt", `Photo de profil du photographe ${name}.Cliquez sur la photo pour accéder à la page du photographe`)
         h2.textContent = name
         h3.textContent = `${city}, ${country}`
         h4.textContent = tagline
@@ -62,7 +62,7 @@ function modalFactory(data) {
     const { name } = data
 
     function getModalDOM() {
-        const div = document.createElement('div')
+        const div = document.createElement("div")
         div.textContent = name
         div.style.fontSize = "40px"
         return (div)

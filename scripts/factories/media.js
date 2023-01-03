@@ -14,19 +14,19 @@ function mediaFactory(data) {
         const spanNumberLikes = document.createElement("span")
         const heart = document.createElement("span")
         divMedia.setAttribute("class", "picture media")
-        img.setAttribute('src', picture)
-        img.setAttribute('class', "artwork")
-        img.setAttribute('tabindex', '0')
-        /*img.setAttribute('index', index)*/
-        img.setAttribute('alt', `Titre de la photo : ${title}. Cliquez sur la photo pour l'agrandir`)
-        divDescription.setAttribute('class', "description")
-        pTitle.setAttribute('class', 'title')
-        divLikes.setAttribute('class', 'likes-count')
-        spanNumberLikes.setAttribute('class', 'likes-number')
-        heart.setAttribute('class', 'fa-regular fa-heart heart')
-        heart.setAttribute('aria-hidden', true)
-        heart.setAttribute('title', 'Nombre de likes')
-        heart.setAttribute('aria-label', "Nombre de likes")
+        img.setAttribute("src", picture)
+        img.setAttribute("class", "artwork")
+        img.setAttribute("tabindex", "0")
+        img.setAttribute("index", index)
+        img.setAttribute("alt", `Titre de la photo : ${title}. Cliquez sur la photo pour l'agrandir`)
+        divDescription.setAttribute("class", "description")
+        pTitle.setAttribute("class", "title")
+        divLikes.setAttribute("class", "likes-count")
+        spanNumberLikes.setAttribute("class", "likes-number")
+        heart.setAttribute("class", "fa-regular fa-heart heart")
+        heart.setAttribute("aria-hidden", true)
+        heart.setAttribute("title", "Nombre de likes")
+        heart.setAttribute("aria-label", "Nombre de likes")
         heart.setAttribute("tabindex", "0")
         pTitle.textContent = title
         spanNumberLikes.textContent = likes
@@ -50,30 +50,31 @@ function videoFactory(data) {
     const clip = `assets/photographers/${photographerId}/${video}`
 
     function getVideoDOM(index) {
-        const divMedia = document.createElement('div')
-        const video = document.createElement('video')
-        const divDescription = document.createElement('div')
-        const pTitle = document.createElement('p')
-        const divLikes = document.createElement('div')
-        const spanNumberLikes = document.createElement('span')
-        const heart = document.createElement('i')
-        divMedia.setAttribute('class', "video media")
-        video.setAttribute('src', clip)
-        video.setAttribute('class', "artwork")
-        video.setAttribute('controls', 'controls')
-        /*video.setAttribute('index', index)*/
-        video.setAttribute('alt', `Titre de la video : ${title}. Cliquez sur la video pour la jouer`)
-        divDescription.setAttribute('class', "description")
-        pTitle.setAttribute('class', "title")
-        divLikes.setAttribute('class', "likes-count")
-        spanNumberLikes.setAttribute('class', "likes-number")
-        heart.setAttribute('class', "fa-regular fa-heart heart")
-        heart.setAttribute('aria-hidden', true)
+        const divMedia = document.createElement("div")
+        const video = document.createElement("video")
+        const divDescription = document.createElement("div")
+        const pTitle = document.createElement("p")
+        const divLikes = document.createElement("div")
+        const spanNumberLikes = document.createElement("span")
+        const heart = document.createElement("i")
+        divMedia.setAttribute("class", "video media")
+        video.setAttribute("src", clip)
+        video.setAttribute("class", "artwork")
+        video.setAttribute("controls", "controls")
+        video.setAttribute("tabindex", "0")
+        video.setAttribute("index", index)
+        video.setAttribute("alt", `Titre de la video : ${title}. Cliquez sur la video pour la jouer`)
+        divDescription.setAttribute("class", "description")
+        pTitle.setAttribute("class", "title")
+        divLikes.setAttribute("class", "likes-count")
+        spanNumberLikes.setAttribute("class", "likes-number")
+        heart.setAttribute("class", "fa-regular fa-heart heart")
+        heart.setAttribute("aria-hidden", true)
         heart.setAttribute('title', "Nombre de likes")
-        heart.setAttribute('aria-label', "Nombre de likes")
+        heart.setAttribute("aria-label", "Nombre de likes")
         heart.setAttribute("tabindex", "0")
         pTitle.textContent = title
-        spanNumberLikes.textContent = likes;
+        spanNumberLikes.textContent = likes
         divMedia.appendChild(video)
         divMedia.appendChild(divDescription)
         divDescription.appendChild(pTitle)
@@ -120,14 +121,14 @@ function lightboxImageFactory(data) {
     function getLightboxImageDOM() {
         const lightboxImageTemplate = `
             <button class="previous_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo précédente"
-            aria-describedby="Voir la photo ou la vidéo précédente" role="button" tabindex="0" onclick="previousMedia()"><span class="fa-solid fa-chevron-left aria-hidden=" true""></span></button>
-            <div class="media-artwork">
-                <img src="${picture}" controls alt="${title}>
+            aria-describedby="Voir la photo ou la vidéo précédente" role="button" onclick="plusSlides(-1)"><span class="fa-solid fa-chevron-left aria-hidden=" true""></span></button>
+            <div class="media-artwork media-artwork-image">
+                <img src="${picture}" alt="${title}">
                 <h1 class="lightbox-artwork-title">${title}</h1>
             </div>
-            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0" onclick="nextMedia()"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
+            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" onclick="plusSlides(+1)"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
             <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre"
-            aria-describedby="Fermeture de la fenêtre" role="button" tabindex="0" onclick="closeLightbox()"><span class="fa-solid fa-xmark" aria-hidden="true"></span></button>
+            aria-describedby="Fermeture de la fenêtre" role="button" onclick="closeLightbox()"><span class="fa-solid fa-xmark" aria-hidden="true"></span></button>
         `
         return (lightboxImageTemplate)
     }
@@ -161,7 +162,7 @@ function lightboxImageFactory(data) {
             <img src="${picture}" controls alt="${title}">
             <h1 class="lightbox-artwork-title">${title}</h1>
         </div>
-        <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0" onclick="nextMedia()"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
+        <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
         <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre"
         aria-describedby="Fermeture de la fenêtre" role="button" tabindex="0" onclick="closeLightbox()"><span class="fa-solid fa-xmark" aria-hidden="true"></span></button>
     `*/
@@ -179,14 +180,14 @@ function lightboxVideoFactory(data) {
     function getLightboxVideoDOM() {
         const lightboxVideoTemplate = `
             <button class="previous_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo précédente"
-            aria-describedby="Voir la photo ou la vidéo précédente" role="button" tabindex="0" onclick="previousMedia()"><span class="fa-solid fa-chevron-left aria-hidden=" true""></span></button>
-            <div class="media-artwork">
-                <video src="${clip}" controls alt="${title}">
+            aria-describedby="Voir la photo ou la vidéo précédente" role="button" onclick="plusSlides(-1)"><span class="fa-solid fa-chevron-left aria-hidden=" true""></span></button>
+            <div class="media-artwork media-artwork-video">
+                <video src="${clip}" controls alt="${title}"></video>
                 <h1 class="lightbox-artwork-title">${title}</h1>
             </div>
-            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0" onclick="nextMedia()"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
+            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" onclick="plusSlides(+1)"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
             <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre"
-            aria-describedby="Fermeture de la fenêtre" role="button" tabindex="0" onclick="closeLightbox()"><span class="fa-solid fa-xmark"
+            aria-describedby="Fermeture de la fenêtre" role="button" onclick="closeLightbox()"><span class="fa-solid fa-xmark"
             aria-hidden="true"></span></button>
     `
         return (lightboxVideoTemplate)
@@ -223,7 +224,7 @@ function lightboxVideoFactory(data) {
                 <video src="${clip}" controls alt="${title}">
                 <h1 class="lightbox-artwork-title">${title}</h1>
             </div>
-            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0" onclick="nextMedia()"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
+            <button class="next_button slide_button" type="button" role="button" aria-label="Voir la photo ou la vidéo suivante" aria-describedby="Voir la photo ou la vidéo suivante" role="button" tabindex="0"><span class="fa-solid fa-chevron-right aria-hidden=" true""></span></button>
             <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre"
             aria-describedby="Fermeture de la fenêtre" role="button" tabindex="0" onclick="closeLightbox()"><span class="fa-solid fa-xmark"
             aria-hidden="true"></span></button>

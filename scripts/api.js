@@ -4,24 +4,45 @@ function fetchDataHomepage() {
     fetch('./data/photographers.json')
         .then(response => response.json())
         .then(data => displayData(data.photographers))
-        .catch(error => console.log("An error occurred", error));
+        .catch(error => console.log("An error occurred", error))
 }
 fetchDataHomepage()
 
 
-// Retrieve each photographer and gallery form URL params with photographer id
+// Retrieve each photographer and gallery from URL params with photographer id
 
-const id = new URL(document.location).searchParams.get('id')
+const id = new URL(document.location).searchParams.get("id")
 
-function fetchData() {
+function fetchDataPhotographerPage() {
     fetch('./data/photographers.json')
         .then(response => response.json())
         .then(data => {
             const galleryPhotographer = data.media.filter(media => media.photographerId == id)
-            const currentPhotographer = data.photographers.find(photographer => photographer.id == id);
+            const currentPhotographer = data.photographers.find(photographer => photographer.id == id)
             displayPhotographerData(currentPhotographer)
             displayMedia(galleryPhotographer)
+            /*addEventToMedias()
+            addEventToMediasKeyboard()*/
+        })
+        .catch(error => console.log("An error occurred", error))
+}
+fetchDataPhotographerPage()
+
+
+
+
+// Retrieve each media to display lightbox
+
+/*let medias
+
+function fetchDataLightbox() {
+    fetch('./data/photographers.json')
+        .then(response => response.json())
+        .then(data => {
+            medias = data.media.filter(media => media.photographerId == id)
+            addEventToMedias()
+            addEventToMediasKeyboard()
         })
         .catch(error => console.log("An error occurred", error));
 }
-fetchData()
+fetchDataLightbox()*/

@@ -9,13 +9,13 @@ function displayPhotographerData(profile) {
 
     // Display photographer's name in modal
     const modalHeader = document.querySelector(".form-header")
-    const modalModel = modalFactory(profile);
+    const modalModel = modalFactory(profile)
     modalHeader.appendChild(modalModel.getModalDOM())
 
-    // Display label
+    // Display label and fee
     const label = document.querySelector(".label")
     label.innerHTML = labelFactory(profile).getLabelDOM()
-};
+}
 
 
 // Display gallery
@@ -26,27 +26,32 @@ function displayMedia(medias) {
 
     // Display gallery
     galleryPhotographer = medias
-    const pictureGallery = document.querySelector(".picture-gallery");
+    const pictureGallery = document.querySelector(".picture-gallery")
     medias.forEach((media, index) => {
-        let image = media.hasOwnProperty('image')
-        let video = media.hasOwnProperty('video')
-        if (image == true) {
-            const mediaPageModel = mediaFactory(media);
+        let image = media.hasOwnProperty("image")
+        let video = media.hasOwnProperty("video")
+        if (image) {
+            const mediaPageModel = mediaFactory(media)
             pictureGallery.appendChild(mediaPageModel.getMediaDOM(index))
-        } else if (video == true) {
-            const videoPageModel = videoFactory(media);
+        } else {
+            const videoPageModel = videoFactory(media)
             pictureGallery.appendChild(videoPageModel.getVideoDOM(index))
         }
-    });
+    })
 
     // Display total number of likes inside label
     let totalLikesDiv = document.querySelector(".total-likes-number")
     totalLikesDiv.innerHTML = likesTotal()
 
+    // Likes increment functions
     heartIncrement()
-    heartIncrementKeybord()
+    heartIncrementKeyboard()
+
+    // Set up lightbox
     addEventToMedias()
-};
+    addEventToMediasKeyboard()
+
+}
 
 
 
