@@ -50,7 +50,6 @@ function displayMedia(medias) {
     // Set up lightbox
     addEventToMedias()
     addEventToMediasKeyboard()
-
 }
 
 
