@@ -1,6 +1,7 @@
 // Display photographer's data
 
-let totalLikesDiv = document.querySelector(".total-likes-number")
+/*let totalLikesDiv = document.querySelector(".total-likes-number")
+let counter = 0*/
 
 function displayPhotographerData(profile) {
     //Display header
@@ -43,9 +44,18 @@ function displayMedia(medias) {
     let totalLikesDiv = document.querySelector(".total-likes-number")
     totalLikesDiv.innerHTML = likesTotal()
 
+    // Local storage
+    /*counter = localStorage.getItem("counter", counter)
+    counter = document.querySelector(".total-likes-number").innerHTML
+    console.log(counter)
+    counter = localStorage.setItem("counter", counter)*/
+
     // Likes increment functions
     heartIncrement()
     heartIncrementKeyboard()
+    /*console.log(counter)*/
+
+
 
     // Set up lightbox
     addEventToMedias()

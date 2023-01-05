@@ -46,7 +46,7 @@ function photographerPageFactory(data) {
             <h2>${city}, ${country}</h2>
             <p>${tagline}</p>
         </div>
-            <button class="contact_button" onclick="openModal()" role="button" aria-labelledby="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+            <button class="contact_button" onclick="openModal()" role="button" aria-label="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
             <img src="${picture}" alt= "Photo de profil de ${name}">
         `
         return (photographerDetailsTemplate)
@@ -81,7 +81,7 @@ function labelFactory(data) {
         const likesAndFees = `
         <span class="total-likes" aria-label="nombre de likes">
             <span class="total-likes-number"></span >
-            <span class="fa-solid fa-heart" aria-hidden="true" title="Nombre de likes"></span>
+            <span class="fa-solid fa-heart" title="Nombre de likes"></span>
         </span >
         <span class="price">${price}€/jour</span>
         `

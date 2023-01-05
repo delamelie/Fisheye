@@ -2,7 +2,7 @@
 <html lang="fr">
 
 <head>
-  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link href="css/style.css" rel="stylesheet" type="text/css">
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,8 +14,8 @@
 
 <body>
   <header class="header-page-photographer" aria-label="Navigation générale">
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" role="img"
-        alt="Logo Fisheye - Lien vers la page d'accueil" /></a>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" role="img" alt="Logo Fisheye"
+        aria-label="Lien vers la page d'accueil"></a>
   </header>
 
   <main id="main" aria-label="Section principale">
@@ -26,18 +26,16 @@
       <section class="filters">
         <div class="filters-label">Trier par</div>
         <div class="filters-list">
-          <button class="sort_button" type="button" role="button" aria-label="Ouvrir le menu de tri" aria-hidden="true"
-            data-toggle="dropdown" aria-haspopup="listbox" aria-expanded="false"
-            aria-describedby="Ouvrir le menu de tri" onclick="toggleFilters()">
+          <button class="sort_button" type="button" role="button" aria-label="Ouvrir le menu de tri"
+            data-toggle="dropdown" aria-haspopup="listbox" aria-expanded="false" onclick="toggleFilters()">
             <span class="dropdown-label">Popularité</span>
-            <span class="fa-solid fa-chevron-down"></span>
+            <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
           </button>
-          <ul class="dropdown" role="listbox" aria-expanded="true">
+          <ul class="dropdown" role="listbox" aria-label="Menu de tri" aria-expanded="true">
             <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option"
               onclick="sortByLikes(galleryPhotographer)" tabindex="0">
               Popularité<button class="dropup_button" type="button" role="button" aria-label="Fermer le menu de tri"
-                aria-hidden="true" data-toggle="dropup" aria-haspopup="listbox" aria-expanded="true"
-                aria-describedby="Fermer le menu de tri" onclick="toggleFilters()"><span
+                data-toggle="dropup" aria-haspopup="listbox" aria-expanded="true" onclick="toggleFilters()"><span
                   class="fa-solid fa-chevron-up"></span></button></li>
             <li class="date dropdown-item" aria-label="Tri par date" role="option"
               onclick="sortByDate(galleryPhotographer)" tabindex="0">Date
@@ -53,36 +51,35 @@
     <aside class="label"></aside>
   </main>
 
-  <section id="contact_modal" role="dialog" aria-describedby="Formulaire de contact du photographe">
+  <section id="contact_modal" role="dialog" aria-label="Formulaire de contact du photographe">
     <div class="modal">
       <header class="form-header" aria-label="En-tête du formulaire de contact">
         <div class="form-title">
-          <h1 aria-label="Ouvrir la fenêtre de contact">Contactez-moi</h1>
-          <button class="close_button modal_close_button" type="button" aria-label="Fermer la fenêtre"
-            aria-describedby="Fermeture de la fenêtre" role="button" onclick="closeModal()"><span
-              class="fa-solid fa-xmark" aria-hidden="true"></span></button>
+          <h1>Contactez-moi</h1>
+          <button class="close_button modal_close_button" type="button" aria-label="Fermer la fenêtre" role="button"
+            onclick="closeModal()"><span class="fa-solid fa-xmark"></span></button>
         </div>
       </header>
 
       <form class="form-contact" aria-label="Formulaire de contact du photographe" method="post">
-        <label for="prenom" id="prenom">Prénom</label>
-        <input type="text" name="prenom" id="prenom" class="prenom" aria-labelledby="prenom" aria-required=true />
+        <label for="prenom">Prénom</label>
+        <input type="text" name="prenom" id="prenom" class="prenom" aria-labelledby="prenom" aria-required=true>
         <span class="error erreur-prenom"></span>
-        <label for="nom" id="nom">Nom</label>
-        <input type="text" name="nom" id="nom" class="nom" aria-labelledby="nom" aria-required=true />
+        <label for="nom">Nom</label>
+        <input type="text" name="nom" id="nom" class="nom" aria-labelledby="nom" aria-required=true>
         <span class="error erreur-nom"></span>
-        <label for="email" id="email">Email</label>
-        <input type="text" name="email" id="email" class="email" aria-labelledby="email" aria-required=true />
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" class="email" aria-labelledby="email" aria-required=true>
         <span class="error erreur-email"></span>
-        <label for="message" id="message">Votre message</label>
-        <input type="text" name="message" id="message" class="message" aria-labelledby="message" aria-required=true />
+        <label for="message">Votre message</label>
+        <input type="text" name="message" id="message" class="message" aria-labelledby="message" aria-required=true>
         <span class="error erreur-message"></span>
-        <button class="send_button" type="submit" aria-labelledby="Envoyer ma demande" role="button">Envoyer</button>
+        <button class="send_button" type="submit" aria-label="Envoyer ma demande" role="button">Envoyer</button>
       </form>
     </div>
   </section>
 
-  <section class="lightbox"></section>
+  <section class="lightbox" role="dialog" aria-label="Carrousel du photographe"></section>
 
   <script src="scripts/api.js"></script>
   <script src="scripts/utils/likes.js"></script>

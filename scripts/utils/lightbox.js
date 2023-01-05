@@ -55,7 +55,8 @@ function closeLightbox() {
     lightbox.setAttribute("aria-hidden", "true")
     header.setAttribute("aria-hidden", "false")
     main.setAttribute("aria-hidden", "false")
-    currentMedia.focus()
+    /*console.log(currentMedia)
+    currentMedia.focus()*/
 }
 
 document.addEventListener("keydown", (event) => {

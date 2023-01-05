@@ -21,8 +21,6 @@ function fetchDataPhotographerPage() {
             const currentPhotographer = data.photographers.find(photographer => photographer.id == id)
             displayPhotographerData(currentPhotographer)
             displayMedia(galleryPhotographer)
-            /*addEventToMedias()
-            addEventToMediasKeyboard()*/
         })
         .catch(error => console.log("An error occurred", error))
 }

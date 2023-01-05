@@ -51,6 +51,7 @@ function heartIncrementKeyboard() {
 
 
 
+
 /*
        for (i = 0; i < likeHeart.length; i++) {
            likeHeart[i].addEventListener('click', incrementLikes);
