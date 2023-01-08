@@ -1,4 +1,4 @@
-// Display photographers data
+// Display all photographers profiles
 
 function displayData(photographers) {
 	const photographersSection = document.querySelector(".photographer_section")

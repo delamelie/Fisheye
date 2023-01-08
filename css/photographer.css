@@ -207,7 +207,7 @@
 .filters {
     display: flex;
     align-items: baseline;
-    margin: 40px 0;
+    margin: 40px 0 100px 0;
 }
 
 .filters-label {
@@ -216,11 +216,13 @@
 
 .filters-list {
     display: flex;
+    position: relative;
     margin-left: 40px;
 }
 
 .dropdown {
     display: none;
+    position: absolute;
     width: 170px;
     flex-direction: column;
     list-style-type: none;
@@ -233,6 +235,7 @@
     background-color: #901C1C;
     border-radius: 5px;
     cursor: pointer;
+    z-index: 100;
 }
 
 .dropdown-item {

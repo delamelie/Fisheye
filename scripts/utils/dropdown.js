@@ -18,7 +18,7 @@ function toggleFilters() {
         dropdownBtn.focus()
     } else {
         dropdown.style.display = "flex"
-        dropdownBtn.style.display = "none"
+        /*dropdownBtn.style.display = "none"*/
         dropdown.setAttribute("aria-hidden", "false")
         dropdownBtn.setAttribute("aria-expanded", "true")
         dropdownBtn.setAttribute("aria-hidden", "true")

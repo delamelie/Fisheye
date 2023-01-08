@@ -1,4 +1,4 @@
-// Calculate total of likes for each photographer
+// Calculate total of likes for each photographer when loading page
 
 function likesTotal() {
     let sumLikes = 0
@@ -24,20 +24,17 @@ function heartIncrement() {
             let numberOfLikes = parseInt(numberDiv.innerHTML)
             let totalLikes = parseInt(totalLikesDiv.innerHTML)
             if (event.target.classList.contains("liked")) {
-                /*numberOfLikes++*/
                 numberDiv.innerHTML = numberOfLikes + 1
                 event.target.classList.replace("fa-regular", "fa-solid")
                 totalLikesDiv.innerHTML = totalLikes + 1
             } else {
-                /*numberOfLikes--*/
                 numberDiv.innerHTML = numberOfLikes - 1
                 event.target.classList.replace("fa-solid", "fa-regular")
                 totalLikesDiv.innerHTML = totalLikes - 1
             }
-            /*likesTotal()*/
+            /*likesTotalStorage()*/
         }))
 }
-
 
 function heartIncrementKeyboard() {
     const heartIcon = document.querySelectorAll(".heart")
@@ -50,19 +47,12 @@ function heartIncrementKeyboard() {
 }
 
 
+/*// Local storage for total number of likes
 
+function likesTotalStorage() {
 
-/*
-       for (i = 0; i < likeHeart.length; i++) {
-           likeHeart[i].addEventListener('click', incrementLikes);
-       }
-       /*for (var i = 0; i < likeHeart.length; i++) {
-           likeHeart[i].addEventListener('click', function () {
-               numberOfLikes++;
-               likesNumber.innerHTML = numberOfLikes;
-               console.log('salut')
-               document.querySelectorAll(".like-heart")[i].style.display = "none";
-               document.querySelectorAll(".dislike-heart")[i].style.display = "block";
-               document.querySelector(".likes-total").innerHTML = numberOfLikes
-           });
-       }*/
+    let counter = document.querySelector(".total-likes-number").innerHTML
+    window.localStorage.setItem("counter", JSON.parse(counter))
+    counter = window.localStorage.getItem("counter")
+    console.log(counter)
+}*/

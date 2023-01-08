@@ -25,22 +25,3 @@ function fetchDataPhotographerPage() {
         .catch(error => console.log("An error occurred", error))
 }
 fetchDataPhotographerPage()
-
-
-
-
-// Retrieve each media to display lightbox
-
-/*let medias
-
-function fetchDataLightbox() {
-    fetch('./data/photographers.json')
-        .then(response => response.json())
-        .then(data => {
-            medias = data.media.filter(media => media.photographerId == id)
-            addEventToMedias()
-            addEventToMediasKeyboard()
-        })
-        .catch(error => console.log("An error occurred", error));
-}
-fetchDataLightbox()*/

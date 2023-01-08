@@ -18,16 +18,17 @@ const regexEmail = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/
 
 // Inputs validation
 
-let formValid = true
+let formValid = []
 
-function fieldValidate(condition, field, error, alert) {
+function fieldValidate(index, condition, field, error, alert) {
     if (condition) {
+        formValid[index] = true
         error.style.display = "none"
         error.textContent = ""
         field.classList.remove("border-invalid", "input-border")
         field.setAttribute("aria-invalid", "false")
     } else {
-        formValid = false
+        formValid[index] = false
         error.style.display = "block"
         error.textContent = alert
         field.classList.add("border-invalid", "input-border")
@@ -35,20 +36,20 @@ function fieldValidate(condition, field, error, alert) {
     }
 }
 
-firstName.addEventListener("input", function () {
-    fieldValidate(firstName.value.length >= 2 && regexName.test(firstName.value) === true, firstName, errorFirstName, alertFirstName)
+firstName.addEventListener("change", function () {
+    fieldValidate(0, firstName.value.length >= 2 && regexName.test(firstName.value) === true, firstName, errorFirstName, alertFirstName)
 })
 
-lastName.addEventListener("input", function () {
-    fieldValidate(lastName.value.length >= 2 && regexName.test(lastName.value) === true, lastName, errorLastName, alertLastName)
+lastName.addEventListener("change", function () {
+    fieldValidate(1, lastName.value.length >= 2 && regexName.test(lastName.value) === true, lastName, errorLastName, alertLastName)
 })
 
-email.addEventListener("input", function () {
-    fieldValidate(email.value != "" && regexEmail.test(email.value) === true, email, errorEmail, alertEmail)
+email.addEventListener("change", function () {
+    fieldValidate(2, email.value != "" && regexEmail.test(email.value) === true, email, errorEmail, alertEmail)
 })
 
-message.addEventListener("input", function () {
-    fieldValidate(message.value != "", message, errorMessage, alertMessage)
+message.addEventListener("change", function () {
+    fieldValidate(3, message.value != "", message, errorMessage, alertMessage)
 })
 
 
@@ -56,11 +57,10 @@ message.addEventListener("input", function () {
 
 const submitBtn = document.querySelector(".send_button")
 const form = document.querySelector(".form-contact")
-const contactBtn = document.querySelector(".contact_button")
 submitBtn.addEventListener("click", validate)
 
 function registrationConfirm() {
-    modal.style.display = "none";
+    modal.style.display = "none"
     header.classList.remove("opacity")
     main.classList.remove("opacity")
     console.log("Prénom : " + firstName.value)
@@ -72,15 +72,13 @@ function registrationConfirm() {
 
 function validate(event) {
     event.preventDefault()
-    fieldValidate(firstName.value.length >= 2 && regexName.test(firstName.value) === true, firstName, errorFirstName, alertFirstName)
-    fieldValidate(lastName.value.length >= 2 && regexName.test(lastName.value) === true, lastName, errorLastName, alertLastName)
-    fieldValidate(email.value != "" && regexEmail.test(email.value) === true, email, errorEmail, alertEmail)
-    fieldValidate(message.value != "", message, errorMessage, alertMessage)
-    if (formValid) {
+    fieldValidate(0, firstName.value.length >= 2 && regexName.test(firstName.value) === true, firstName, errorFirstName, alertFirstName)
+    fieldValidate(1, lastName.value.length >= 2 && regexName.test(lastName.value) === true, lastName, errorLastName, alertLastName)
+    fieldValidate(2, email.value != "" && regexEmail.test(email.value) === true, email, errorEmail, alertEmail)
+    fieldValidate(3, message.value != "", message, errorMessage, alertMessage)
+    const checks = formValid.some(e => e === false)
+    if (!checks) {
         registrationConfirm()
-        contactBtn.focus()
-    } else {
-        formValid = true
+        document.querySelector(".contact_button").focus()
     }
 }
-

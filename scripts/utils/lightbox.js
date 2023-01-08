@@ -7,9 +7,9 @@ function addEventToMedias() {
     document.querySelectorAll(".artwork").forEach(media =>
         media.addEventListener("click", (event) => {
             mediaIndex = event.target.getAttribute("index")
-            lightbox.style.display = "flex";
-            header.style.display = "none";
-            main.style.display = "none";
+            lightbox.style.display = "flex"
+            header.style.display = "none"
+            main.style.display = "none"
             lightbox.setAttribute("aria-hidden", "false")
             header.setAttribute("aria-hidden", "true")
             main.setAttribute("aria-hidden", "true")
@@ -42,6 +42,7 @@ function displayLightbox(mediaIndex) {
     } else {
         throw "Unknown format type"
     }
+    document.querySelector(".next_button").focus()
 }
 
 
@@ -55,12 +56,11 @@ function closeLightbox() {
     lightbox.setAttribute("aria-hidden", "true")
     header.setAttribute("aria-hidden", "false")
     main.setAttribute("aria-hidden", "false")
-    /*console.log(currentMedia)
-    currentMedia.focus()*/
 }
 
-document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
+lightbox.addEventListener("keydown", (event) => {
+    if ((event.key === "Escape")) {
+        console.log("lightbox")
         closeLightbox()
     }
 })
@@ -74,6 +74,7 @@ function displayPreviousMedia() {
         mediaIndex = galleryPhotographer.length - 1;
     }
     displayLightbox(mediaIndex)
+    document.querySelector(".previous_button").focus()
 }
 
 
@@ -83,6 +84,7 @@ function displayNextMedia() {
         mediaIndex = 0;
     }
     displayLightbox(mediaIndex)
+    document.querySelector(".next_button").focus()
 }
 
 

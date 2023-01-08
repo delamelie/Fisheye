@@ -33,7 +33,7 @@ function closeModal() {
 
 // Close modal with Escape key
 
-document.addEventListener("keydown", (event) => {
+modal.addEventListener("keydown", (event) => {
   if (event.key === "Escape") {
     closeModal()
   }

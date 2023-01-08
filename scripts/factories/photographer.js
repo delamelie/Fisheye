@@ -32,7 +32,7 @@ function photographerFactory(data) {
 }
 
 
-// Create html layout for photographer-details section
+// Create html layout for photographer-details section of photographer's page
 
 function photographerPageFactory(data) {
 
@@ -46,7 +46,7 @@ function photographerPageFactory(data) {
             <h2>${city}, ${country}</h2>
             <p>${tagline}</p>
         </div>
-            <button class="contact_button" onclick="openModal()" role="button" aria-label="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
+            <button class="contact_button" onclick="openModal()" type= "button" aria-label="Contactez-moi, ouvrir la fenêtre de contact">Contactez-moi</button>
             <img src="${picture}" alt= "Photo de profil de ${name}">
         `
         return (photographerDetailsTemplate)
@@ -55,7 +55,7 @@ function photographerPageFactory(data) {
 }
 
 
-// Create html layout for form-header
+// Create html layout to insert photographer's name inside modal
 
 function modalFactory(data) {
 
@@ -71,7 +71,7 @@ function modalFactory(data) {
 }
 
 
-// Create html layout for label
+// Create html layout for label at he bottom of photographer's page
 
 function labelFactory(data) {
 
@@ -81,7 +81,8 @@ function labelFactory(data) {
         const likesAndFees = `
         <span class="total-likes" aria-label="nombre de likes">
             <span class="total-likes-number"></span >
-            <span class="fa-solid fa-heart" title="Nombre de likes"></span>
+            <span class="sr-only">Nombre total de likes du photographe :</span>
+            <span class="fa-solid fa-heart" aria-hidden="true"></span>
         </span >
         <span class="price">${price}€/jour</span>
         `

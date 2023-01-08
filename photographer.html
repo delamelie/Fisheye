@@ -14,8 +14,8 @@
 
 <body>
   <header class="header-page-photographer" aria-label="Navigation générale">
-    <a href="index.html"><img src="assets/images/logo.png" class="logo" role="img" alt="Logo Fisheye"
-        aria-label="Lien vers la page d'accueil"></a>
+    <a href="index.html"><img src="assets/images/logo.png" class="logo" role="img"
+        alt="Logo Fisheye - Lien vers la page d'accueil"></a>
   </header>
 
   <main id="main" aria-label="Section principale">
@@ -29,9 +29,9 @@
           <button class="sort_button" type="button" role="button" aria-label="Ouvrir le menu de tri"
             data-toggle="dropdown" aria-haspopup="listbox" aria-expanded="false" onclick="toggleFilters()">
             <span class="dropdown-label">Popularité</span>
-            <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
+            <span class="fa-solid fa-chevron-down"></span>
           </button>
-          <ul class="dropdown" role="listbox" aria-label="Menu de tri" aria-expanded="true">
+          <ul class="dropdown" role="listbox" aria-label="Menu de tri">
             <li class="popularite dropdown-item" aria-label="Tri par popularité" role="option"
               onclick="sortByLikes(galleryPhotographer)" tabindex="0">
               Popularité<button class="dropup_button" type="button" role="button" aria-label="Fermer le menu de tri"
@@ -56,7 +56,7 @@
       <header class="form-header" aria-label="En-tête du formulaire de contact">
         <div class="form-title">
           <h1>Contactez-moi</h1>
-          <button class="close_button modal_close_button" type="button" aria-label="Fermer la fenêtre" role="button"
+          <button class="close_button modal_close_button" type="button" aria-label="Fermer la fenêtre"
             onclick="closeModal()"><span class="fa-solid fa-xmark"></span></button>
         </div>
       </header>
@@ -74,7 +74,7 @@
         <label for="message">Votre message</label>
         <input type="text" name="message" id="message" class="message" aria-labelledby="message" aria-required=true>
         <span class="error erreur-message"></span>
-        <button class="send_button" type="submit" aria-label="Envoyer ma demande" role="button">Envoyer</button>
+        <button class="send_button" type="submit" aria-label="Envoyer ma demande">Envoyer</button>
       </form>
     </div>
   </section>
