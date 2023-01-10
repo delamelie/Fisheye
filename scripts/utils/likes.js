@@ -36,6 +36,9 @@ function heartIncrement() {
         }))
 }
 
+
+// Likes count using keyboard
+
 function heartIncrementKeyboard() {
     const heartIcon = document.querySelectorAll(".heart")
     heartIcon.forEach(like =>

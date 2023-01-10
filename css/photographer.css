@@ -38,18 +38,18 @@
 
 .header-main-photographer h1 {
     margin-bottom: 0;
-    color: #D3573C;
+    color: var(--third-color);
     font-size: 3.5em;
 }
 
 .header-main-photographer h2 {
     margin: 0;
-    color: #901C1C;
+    color: var(--main-color);
     font-size: 2em;
 }
 
 .header-main-photographer p {
-    color: #525252;
+    color: var(--grey-color);
     font-size: 1.1em;
 }
 
@@ -58,7 +58,7 @@
     width: 200px;
     object-fit: cover;
     border-radius: 50%;
-    box-shadow: 2px 5px 15px#e0e4dc;
+    box-shadow: 2px 5px 15px var(--box-shadow-color);
 }
 
 .contact_button,
@@ -69,9 +69,9 @@
     padding: 11px;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: var(--white-color);
     border: none;
-    background-color: #901C1C;
+    background-color: var(--main-color);
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
@@ -82,7 +82,7 @@
 .sort_button:hover,
 .sort_button:focus {
     color: #000000;
-    background-color: #DB8876;
+    background-color: var(--second-color);
 }
 
 .opacity {
@@ -113,7 +113,7 @@
     margin: 0 auto;
     padding: 35px;
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: var(--second-color);
 }
 
 .form-header {
@@ -130,21 +130,21 @@
 .modal_close_button {
     height: 100px;
     width: 100px;
-    background-color: #DB8876;
-    border: transparent
+    background-color: var(--second-color);
+    border: transparent;
 }
 
 .modal_close_button .fa-xmark {
     cursor: pointer;
     font-size: 46px;
-    color: #ffffff;
+    color: var(--white-color);
 }
 
 .modal header h1 {
-    font-size: 50px;
-    font-weight: normal;
     text-align: center;
     margin: 0;
+    font-size: 50px;
+    font-weight: normal;
 }
 
 .modal form {
@@ -181,7 +181,7 @@
 .send_button {
     margin-top: 30px;
     transform: scale(1);
-    transition: transform 400ms;
+    transition: transform 0.4s;
 }
 
 .send_button:hover {
@@ -192,12 +192,12 @@
     margin-top: 10px;
     margin-bottom: 10px;
     font-size: 1.1em;
-    color: #901C1C;
+    color: var(--main-color);
     transition: 0.3s;
 }
 
 .input-border.border-invalid {
-    border: 2px solid #901C1C;
+    border: 2px solid var(--main-color);
 }
 
 .photographer-portfolio {
@@ -222,20 +222,20 @@
 
 .dropdown {
     display: none;
-    position: absolute;
-    width: 170px;
     flex-direction: column;
-    list-style-type: none;
+    position: absolute;
+    /*z-index: 100;*/
+    width: 170px;
     margin: 0;
     padding: 0;
+    list-style-type: none;
     font-size: 20px;
     font-weight: bold;
-    color: white;
+    color: var(--white-color);
     border: none;
-    background-color: #901C1C;
+    background-color: var(--main-color);
     border-radius: 5px;
     cursor: pointer;
-    z-index: 100;
 }
 
 .dropdown-item {
@@ -254,7 +254,7 @@
     right: 10%;
     bottom: 0;
     height: 1px;
-    background-color: white;
+    background-color: var(--white-color);
 }
 
 .dropup_button {
@@ -262,20 +262,20 @@
     right: 0;
     height: 100%;
     width: 55px;
-    background-color: #901C1C;
+    background-color: var(--main-color);
     border: none;
-    color: white;
+    border-top-right-radius: 5px;
+    color: var(--white-color);
     font-size: 20px;
     font-weight: bold;
     cursor: pointer;
-    border-top-right-radius: 5px;
 }
 
 .picture-gallery {
     display: grid;
     grid-template-columns: repeat(3, 30%);
-    row-gap: 30px;
     justify-content: space-between;
+    row-gap: 30px;
     margin-bottom: 100px;
 }
 
@@ -296,7 +296,7 @@ video {
     justify-content: space-between;
     align-items: center;
     font-size: 1.1em;
-    color: #901C1C;
+    color: var(--main-color);
 }
 
 .picture .title,
@@ -329,38 +329,32 @@ video {
     box-sizing: border-box;
     padding: 0 30px;
     border-radius: 5px;
-    background-color: #DB8876;
+    background-color: var(--second-color);
     font-size: 1.3em;
 }
 
 .lightbox {
-    color: #901C1C;
     display: none;
     justify-content: center;
     align-items: center;
-    /*position: absolute;
-    left: 0%;
-    right: 0%;
-    top: 0%;
-    bottom: 0%;*/
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    /*z-index: 10;*/
+    color: var(--main-color);
     animation: lightbox 0.5s;
 }
 
 .lightbox_close_button,
 .slide_button {
-    cursor: pointer;
     height: 100px;
     width: 100px;
     font-size: 34px;
-    color: #901C1C;
+    color: var(--main-color);
     border: transparent;
-    background-color: #ffffff;
+    cursor: pointer;
+    background-color: var(--white-color);
 }
 
 .lightbox_close_button {
@@ -383,6 +377,6 @@ video {
 }
 
 .lightbox-artwork-title {
-    font-size: 1.2em;
     margin: 10px 0;
+    font-size: 1.2em;
 }

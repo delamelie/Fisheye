@@ -27,7 +27,7 @@ function toggleFilters() {
 }
 
 
-// When Enter is pressed
+// When Enter key is pressed
 
 dropupBtn.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {

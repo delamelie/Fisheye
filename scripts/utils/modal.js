@@ -33,8 +33,8 @@ function closeModal() {
 
 // Close modal with Escape key
 
-modal.addEventListener("keydown", (event) => {
-  if (event.key === "Escape") {
+document.addEventListener("keydown", (event) => {
+  if (event.key === "Escape" && modal.style.display == "block") {
     closeModal()
   }
 })

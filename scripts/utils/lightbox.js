@@ -17,6 +17,7 @@ function addEventToMedias() {
         }))
 }
 
+
 function addEventToMediasKeyboard() {
     document.querySelectorAll(".artwork").forEach(media =>
         media.addEventListener("keydown", (event) => {
@@ -42,11 +43,10 @@ function displayLightbox(mediaIndex) {
     } else {
         throw "Unknown format type"
     }
-    document.querySelector(".next_button").focus()
 }
 
 
-// Close lightbox
+// Close lightbox (onclick or using Escape key)
 
 function closeLightbox() {
     lightbox.style.display = "none"
@@ -58,9 +58,8 @@ function closeLightbox() {
     main.setAttribute("aria-hidden", "false")
 }
 
-lightbox.addEventListener("keydown", (event) => {
-    if ((event.key === "Escape")) {
-        console.log("lightbox")
+document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && lightbox.style.display == "flex") {
         closeLightbox()
     }
 })
@@ -87,6 +86,8 @@ function displayNextMedia() {
     document.querySelector(".next_button").focus()
 }
 
+
+// Go to previous/next media when pressing arrow keys
 
 document.addEventListener("keydown", (event) => {
     if (event.key === "ArrowRight") {
