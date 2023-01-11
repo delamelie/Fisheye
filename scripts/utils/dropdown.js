@@ -1,3 +1,5 @@
+// DOM elements
+
 const dropdown = document.querySelector(".dropdown")
 const dropdownBtn = document.querySelector(".sort_button")
 const dropupBtn = document.querySelector(".dropup_button")
@@ -11,17 +13,11 @@ function toggleFilters() {
     e.stopPropagation()
     if (dropdown.style.display == "flex") {
         dropdown.style.display = "none"
-        dropdownBtn.style.display = "block"
         dropdownBtn.setAttribute("aria-expanded", "false")
-        dropdownBtn.setAttribute("aria-hidden", "false")
-        dropdown.setAttribute("aria-hidden", "true")
         dropdownBtn.focus()
     } else {
         dropdown.style.display = "flex"
-        /*dropdownBtn.style.display = "none"*/
-        dropdown.setAttribute("aria-hidden", "false")
         dropdownBtn.setAttribute("aria-expanded", "true")
-        dropdownBtn.setAttribute("aria-hidden", "true")
         popularite.focus()
     }
 }

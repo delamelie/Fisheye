@@ -18,13 +18,13 @@ function mediaFactory(data) {
         img.setAttribute("class", "artwork")
         img.setAttribute("tabindex", "0")
         img.setAttribute("index", index)
-        img.setAttribute("alt", `Titre de la photo : ${title}.`)
+        img.setAttribute("alt", title)
         divDescription.setAttribute("class", "description")
         pTitle.setAttribute("class", "title")
         divLikes.setAttribute("class", "likes-count")
         spanNumberLikes.setAttribute("class", "likes-number")
         heart.setAttribute("class", "fa-regular fa-heart heart")
-        heart.setAttribute("aria-label", "Nombre de likes")
+        heart.setAttribute("aria-label", "Nombre de likes. Cliquez pour ajouter ou enlever un like")
         heart.setAttribute("role", "button")
         heart.setAttribute("tabindex", "0")
         pTitle.textContent = title
@@ -62,12 +62,13 @@ function videoFactory(data) {
         video.setAttribute("controls", "controls")
         video.setAttribute("tabindex", "0")
         video.setAttribute("index", index)
+        video.setAttribute("aria-label", title)
         divDescription.setAttribute("class", "description")
         pTitle.setAttribute("class", "title")
         divLikes.setAttribute("class", "likes-count")
         spanNumberLikes.setAttribute("class", "likes-number")
         heart.setAttribute("class", "fa-regular fa-heart heart")
-        heart.setAttribute("aria-label", "Nombre de likes")
+        heart.setAttribute("aria-label", "Nombre de likes. Cliquez pour ajouter ou enlever un like")
         heart.setAttribute("role", "button")
         heart.setAttribute("tabindex", "0")
         pTitle.textContent = title
@@ -93,15 +94,15 @@ function lightboxImageFactory(data) {
 
     function getLightboxImageDOM() {
         const lightboxImageTemplate = `
-            <button class="previous_button slide_button" type="button" aria-label="Voir la photo ou la vidéo précédente"
-            onclick="displayPreviousMedia()"><span class="fa-solid fa-chevron-left"></span></button>
-            <div class="media-artwork media-artwork-image">
-                <img src="${picture}" alt="${title}">
-                <h1 class="lightbox-artwork-title">${title}</h1>
-            </div>
-            <button class="next_button slide_button" type="button" aria-label="Voir la photo ou la vidéo suivante" onclick=displayNextMedia()><span class="fa-solid fa-chevron-right"></span></button>
-            <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre" onclick="closeLightbox()"><span class="fa-solid fa-xmark"></span></button>
-        `
+                <button class="previous_button slide_button" type="button" aria-label="Image précédente"
+                onclick="displayPreviousMedia()"><span class="fa-solid fa-chevron-left"></span></button>
+                <div class="media-artwork media-artwork-image" tabindex="0">
+                    <img src="${picture}" alt="${title}">
+                    <h1 class="lightbox-artwork-title">${title}</h1>
+                </div>
+                <button class="next_button slide_button" type="button" aria-label="Image suivante" onclick="displayNextMedia()"><span class="fa-solid fa-chevron-right"></span></button>
+                <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre" onclick="closeLightbox()"><span class="fa-solid fa-xmark"></span></button>
+            `
         return (lightboxImageTemplate)
     }
     return { photographerId, picture, title, getLightboxImageDOM }
@@ -115,15 +116,15 @@ function lightboxVideoFactory(data) {
 
     function getLightboxVideoDOM() {
         const lightboxVideoTemplate = `
-            <button class="previous_button slide_button" type="button" aria-label="Voir la photo ou la vidéo précédente"
-            onclick="displayPreviousMedia()"><span class="fa-solid fa-chevron-left"></span></button>
-            <div class="media-artwork media-artwork-video">
-                <video src="${clip}" controls></video>
-                <h1 class="lightbox-artwork-title">${title}</h1>
-            </div>
-            <button class="next_button slide_button" type="button" aria-label="Voir la photo ou la vidéo suivante" onclick="displayNextMedia()"><span class="fa-solid fa-chevron-right"></span></button>
-            <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre" onclick="closeLightbox()"><span class="fa-solid fa-xmark"></span></button>
-        `
+                <button class="previous_button slide_button" type="button" aria-label="Image précédente"
+                onclick="displayPreviousMedia()"><span class="fa-solid fa-chevron-left"></span></button>
+                <div class="media-artwork media-artwork-video" tabindex="0">
+                    <video src="${clip}" controls></video>
+                    <h1 class="lightbox-artwork-title">${title}</h1>
+                </div>
+                <button class="next_button slide_button" type="button" aria-label="Image suivante" onclick="displayNextMedia()"><span class="fa-solid fa-chevron-right"></span></button>
+                <button class="close_button lightbox_close_button" type="button" aria-label="Fermer la fenêtre" onclick="closeLightbox()"><span class="fa-solid fa-xmark"></span></button>
+            `
         return (lightboxVideoTemplate)
     }
     return { photographerId, clip, title, getLightboxVideoDOM }

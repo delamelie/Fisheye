@@ -37,6 +37,7 @@ function displayMedia(medias) {
         }
     })
 
+
     // Display total number of likes inside label at the bottom of the page
     let totalLikesDiv = document.querySelector(".total-likes-number")
     totalLikesDiv.innerHTML = likesTotal()

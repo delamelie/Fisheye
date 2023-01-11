@@ -21,7 +21,7 @@ function photographerFactory(data) {
         article.appendChild(p)
         link.setAttribute("href", `photographer.html?id=${id}`)
         img.setAttribute("src", picture)
-        img.setAttribute("alt", `Photo de profil du photographe ${name}.Cliquez sur la photo pour accéder à la page du photographe`)
+        img.setAttribute("alt", `Photo de profil de ${name}`)
         h2.textContent = name
         h3.textContent = `${city}, ${country}`
         h4.textContent = tagline

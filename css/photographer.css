@@ -70,9 +70,9 @@
     font-size: 20px;
     font-weight: bold;
     color: var(--white-color);
-    border: none;
     background-color: var(--main-color);
     border-radius: 5px;
+    border: none;
     cursor: pointer;
     transition: 0.3s;
 }
@@ -92,10 +92,10 @@
 
 #contact_modal {
     display: none;
-    width: 100%;
-    height: 100%;
     position: absolute;
     top: 0;
+    width: 100%;
+    height: 100%;
     overflow: auto;
     overscroll-behavior: contain;
     animation: modal 0.5s;
@@ -135,9 +135,9 @@
 }
 
 .modal_close_button .fa-xmark {
-    cursor: pointer;
     font-size: 46px;
     color: var(--white-color);
+    cursor: pointer;
 }
 
 .modal header h1 {
@@ -207,7 +207,7 @@
 .filters {
     display: flex;
     align-items: baseline;
-    margin: 40px 0 100px 0;
+    margin: 40px 0 80px 0;
 }
 
 .filters-label {
@@ -224,25 +224,28 @@
     display: none;
     flex-direction: column;
     position: absolute;
-    /*z-index: 100;*/
     width: 170px;
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
+    z-index: 100;
     font-size: 20px;
     font-weight: bold;
     color: var(--white-color);
-    border: none;
     background-color: var(--main-color);
     border-radius: 5px;
+    border: none;
     cursor: pointer;
+}
+
+.dropdown-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
 }
 
 .dropdown-item {
     display: flex;
     align-items: center;
     position: relative;
-    height: 68px;
+    height: 70px;
     padding: 0 18px;
 }
 
@@ -253,21 +256,23 @@
     left: 10%;
     right: 10%;
     bottom: 0;
-    height: 1px;
+    height: 2px;
     background-color: var(--white-color);
 }
+
 
 .dropup_button {
     position: absolute;
     right: 0;
-    height: 100%;
-    width: 55px;
+    top: 1px;
+    height: 67px;
+    width: 50px;
     background-color: var(--main-color);
-    border: none;
-    border-top-right-radius: 5px;
     color: var(--white-color);
     font-size: 20px;
     font-weight: bold;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
 }
 
@@ -328,9 +333,9 @@ video {
     height: 70px;
     box-sizing: border-box;
     padding: 0 30px;
+    font-size: 1.3em;
     border-radius: 5px;
     background-color: var(--second-color);
-    font-size: 1.3em;
 }
 
 .lightbox {
@@ -353,8 +358,8 @@ video {
     font-size: 34px;
     color: var(--main-color);
     border: transparent;
-    cursor: pointer;
     background-color: var(--white-color);
+    cursor: pointer;
 }
 
 .lightbox_close_button {

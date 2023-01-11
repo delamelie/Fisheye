@@ -70,7 +70,7 @@ document.addEventListener("keydown", (event) => {
 function displayPreviousMedia() {
     mediaIndex = galleryPhotographer.indexOf(currentMedia) - 1
     if (mediaIndex < 0) {
-        mediaIndex = galleryPhotographer.length - 1;
+        mediaIndex = galleryPhotographer.length - 1
     }
     displayLightbox(mediaIndex)
     document.querySelector(".previous_button").focus()
